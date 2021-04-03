@@ -1,4 +1,5 @@
 # **B.ring**
+
 ## サイト概要
 大阪府内バスケットボールコート共有サイト
 
@@ -15,12 +16,12 @@
 少しの時間でも、外でバスケットボールを出来る場所が知りたいとき
 
 ## 設計書
-ER図
-https://drive.google.com/drive/u/0/my-drive
-データベース設計書
-https://docs.google.com/spreadsheets/d/1FtkPNrmIcCaVmzqHPkqTONbg3eQq8hmK/edit#gid=1803198645
-アプリケーション詳細設計書
-https://docs.google.com/spreadsheets/d/1FI4MdIy-D00mENkKL6aT7HNadULul_V7B_eTlKlq7nM/edit#gid=0
+ER図:https://drive.google.com/drive/u/0/my-drive
+<br>
+データベース設計書:https://docs.google.com/spreadsheets/d/1FtkPNrmIcCaVmzqHPkqTONbg3eQq8hmK/edit#gid=1803198645
+<br>
+アプリケーション詳細設計書:https://docs.google.com/spreadsheets/d/1FI4MdIy-D00mENkKL6aT7HNadULul_V7B_eTlKlq7nM/edit#gid=0
+
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/12VtRdvicynl9iAiQ5cz7HcOYbtnH50xYglsFC5mF1mA/edit#gid=0
 
