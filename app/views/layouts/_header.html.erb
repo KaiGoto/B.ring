@@ -1,1 +1,28 @@
-<h1>ヘッダー</h1>
+<header>
+  <nav>
+    <%= link_to root_path do %>
+    <%= image_tag('logo.png', size: '95x95') %>
+    <% end %>
+    <ul>
+      <% if user_signed_in? %>
+        <li><%= current_user.nickname %>,Welcome!</li>
+        <li><%= link_to "Mypage", user_path(current_user.id) %></li>
+        <li><%= link_to "地域一覧", about_path %></li>
+        <!--パス名は後で修正-->
+        <li><%= link_to "Logout", destroy_user_sesssion_path %></li>
+      <% elsif admin_signed_in? %>
+        <li>管理者</li>
+        <li><%= link_to "場所一覧", admins_places_path %></li>
+        <li><%= link_to "地域一覧", admins_regions_path %></li>
+        <li><%= link_to "会員一覧", admins_user_path %></li>
+        <!--パス名は後で修正-->
+        <li><%= link_to "Logout", destroy_admins_sesssion_path %></li>
+      <% else %>
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "地域一覧", about_path %> </li>
+        <li><%= link_to "新規登録", new_user_registration_path %></li>
+        <li><%= link_to "Login", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
