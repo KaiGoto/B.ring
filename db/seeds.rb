@@ -11,13 +11,15 @@ Admin.create!(
 )
 
 # User.create!(
-#    email: 'a@a.com',
-#    last_name: 'a',
-#    first_name: 'a',
-#    k_last_name: 'a',
-#    k_first_name: 'a',
-#    nickname: 'a',
-#    postal_code: '0000000',
-#    address: '大阪府大阪市中央区1-1-1',
-#    telephone_number: '00000000000',
+#    email: "a@a.com",
+#    last_name: "test",
+#    first_name: "test",
+#    k_last_name: "test",
+#    k_first_name: "test",
+#    nickname: "test",
+#    postal_code: "0620934",
+#    address: "北海道札幌市豊平区平岸4条13-8",
+#    telephone_number: "07012345678",
+#    password: "aaaaaa",
+#    is_valid: "true",
 # )

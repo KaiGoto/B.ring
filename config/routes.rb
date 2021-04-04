@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     post 'users/sign_in' => 'public/sessions#create', as: 'user_session'
     get 'users/sign_out' => 'public/sessions#destroy', as: 'destroy_user_session'
     get 'users/sign_up' => 'public/registrations#new', as: 'new_user_registration'
+    post 'users' => 'public/registrations#create', as: 'user_registration'
     get 'users/password/new' => 'public/passwords#new', as: 'new_user_password'
   end
 
