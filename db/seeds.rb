@@ -11,7 +11,7 @@ Admin.create!(
 )
 
 # User.create!(
-#    email: "a@a.com",
+#    email: "test@test.com",
 #    last_name: "test",
 #    first_name: "test",
 #    k_last_name: "test",
