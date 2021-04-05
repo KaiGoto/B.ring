@@ -1,0 +1,35 @@
+<h4>My Page</h4>
+<h7>登録情報</h7>
+<table>
+  <thead>
+    <tr>
+      <th class="fas fa-signature">氏名</th>
+      <td><%= @user.last_name %><%= @user.first_name %></td>
+    </tr>
+    <tr>
+      <th class="fas fa-file-signature">フリガナ</th>
+      <td><%= @user.k_last_name %><%= @user.k_first_name %></td>
+    </tr>
+    <tr>
+      <th class="fas fa-user">表示名</th>
+      <td><%= @user.nickname %></td>
+    </tr>
+    <tr>
+      <th class="fas fa-mail-bulk">郵便番号</th>
+      <td>〒<%= @user.postal_code %></td>
+    </tr>
+     <tr>
+      <th class="fas fa-address-card">住所</th>
+      <td><%= @user.address %></td>
+    </tr>
+     <tr>
+      <th class="fas fa-mobile-alt">電話番号</th>
+      <td><%= @user.telephone_number %></td>
+    </tr>
+     <tr>
+      <th class="fas fa-envelope">メールアドレス</th>
+      <td><%= @user.email %></td>
+    </tr>
+  </thead>
+</table>
+<%= link_to "Edit", edit_user_path(@user), class:"btn btn-succsess px-4" %>

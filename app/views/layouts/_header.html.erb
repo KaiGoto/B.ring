@@ -1,1 +1,26 @@
-<h1>ヘッダー</h1>
+<header>
+  <nav>
+    <%= link_to root_path do %>
+    <%= image_tag('logo.png', size: '95x95') %>
+    <% end %>
+    <ul>
+      <% if user_signed_in? %>
+        <li><%= current_user.nickname %>さん,Welcome!</li>
+        <li><%= link_to "Mypage", user_path(current_user.id), class:"fas fa-user nav-link text-light" %></li>
+        <li><%= link_to "地域一覧", regions_path, class:"fas fa-globe-asia nav-link text-light" %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, class:"fas fa-sign-out-alt nav-link text-light" %></li>
+      <% elsif admin_signed_in? %>
+        <li>管理者</li>
+        <li><%= link_to "場所一覧", admins_places_path, class:"fas fa-map-matker-alt nav-link text-light" %></li>
+        <li><%= link_to "地域一覧", admins_regions_path, class:"fas fa-globe-asia nav-link text-light" %></li>
+        <li><%= link_to "会員一覧", admins_users_path, class:"fas fa-user nav-link text-light" %></li>
+        <li><%= link_to "Logout", destroy_admins_sesssion_path, class:"fas fa-sign-out-alt nav-link text-light" %></li>
+      <% else %>
+        <li><%= link_to "About", about_path, class:"fas fa-basketball-ball nav-link text-light" %></li>
+        <li><%= link_to "地域一覧", regions_path, class:"fas fa-globe-asia nav-link text-light" %> </li>
+        <li><%= link_to "新規登録", new_user_registration_path, class:"fas fa-user-plus nav-link text-light" %></li>
+        <li><%= link_to "Login", new_user_session_path, class:"fas fa-sign-in-alt nav-link text-light" %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
