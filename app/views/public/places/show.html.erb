@@ -1,0 +1,19 @@
+<h2>場所詳細</h2>
+<%= attachment_image_tag(place, :image, :fill, 200, 200, format: 'jpeg', fallback: "images/no_image.jpg") %>
+
+<div>
+  <div>場所名</div>
+  <div><%= @place.name %></div>
+</div>
+<div>
+  <div>地面</div>
+  <div><%= @place.ground %></div>
+</div>
+<div>
+  <div>場所説明</div>
+  <div><%= @place.explanation %></div>
+</div>
+<div>
+  <div>地域名</div>
+  <div><%= @place.region %></div>
+</div>
