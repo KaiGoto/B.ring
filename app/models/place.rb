@@ -1,5 +1,5 @@
 class Place < ApplicationRecord
-  belongs_to :regions
+  belongs_to :region
 
   attachment :image
   validates :name, presence: true, length:{minimum: 2,maximum: 30} #場所名
