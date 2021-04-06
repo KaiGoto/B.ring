@@ -1,2 +1,8 @@
 class Place < ApplicationRecord
+  belongs_to :regions
+
+  attachment :image
+  validates :name, presence: true, length:{minimum: 2,maximum: 30} #場所名
+  validates :ground, presence: true #地面
+  validates :explanation, presence: true, length:{maximum: 300}  #場所説明
 end
