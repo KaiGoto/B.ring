@@ -1,6 +1,6 @@
 <h2>場所一覧</h2>
 <p>全<%#= @place_all.count %>件</p>
-
+<p>場所の新規登録する場合は<%= link_to "こちら", new_admins_place_path %>から</p>
 <table>
   <thead>
     <tr>
@@ -11,16 +11,17 @@
     </tr>
   </thead>
   <body>
-    <%= @place.each do |place|%>
+    <% @place.each do |place|%>
       <tr>
-        <th><%= place.id %></th>
-        <th>
+        <td><%= place.id %></td>
+        <td>
           <%= link_to admins_place_path(place.id) do %>
-          <%= attachment_image_tag(place, :image, :fill, 200, 200, format: 'jpeg', fallback: "images/no_image.jpg") %>
+          <%= attachment_image_tag(place, :image, :fill, 200, 200, format: 'jpeg', fallback: "/no_image.jpg") %>
           <% end %>
-        </th>
-        <th><%= place.region.name %></th>
-        <th><%= place.ground %></th>
+        </td>
+        <td><%= place.name %></td>
+        <td><%= place.region.name %></td>
+        <td><%= place.ground %></td>
       </tr>
   </body>
   <% end %>

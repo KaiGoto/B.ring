@@ -1,5 +1,10 @@
 class Admins::PlacesController < ApplicationController
 before_action :authenticate_admin!
+  def new
+    @place = Place.new
+    @places = Place.all
+  end
+
   def index
     @place = Place.page(params[:page]).per(10)
     @region = Region.all
@@ -16,15 +21,11 @@ before_action :authenticate_admin!
     @place = Place.find(params[:id])
   end
 
-  def new
-    @place = Place.new
-    @places = Place.all
-  end
 
   def create
     @place = Place.new(place_params)
     if @place.save
-      redirect_to admins_place_path(@place)
+      redirect_to admins_place_path(@place), notice: '場所を作成しました'
     else
       render "new"
     end
@@ -33,7 +34,7 @@ before_action :authenticate_admin!
   def update
     @place = Place.find(params[:id])
     if @place.update(place_params)
-      redirect_to admins_place_path
+      redirect_to admins_place_path, notice: '更新しました'
     else
       render "edit"
     end
@@ -41,7 +42,7 @@ before_action :authenticate_admin!
 
   private
   def place_params
-    params.require(:place).permit(:image_id, :name, :explanation, :region, :ground)
+    params.require(:place).permit(:image_id, :name, :explanation, :region_id, :ground)
   end
 
 end
