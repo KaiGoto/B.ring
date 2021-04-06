@@ -1,0 +1,20 @@
+<h2>場所編集</h2>
+<%#= render 'layouts/errors', obj: @place %>
+<%= form_with model: @place, url: admins_place_path, local:true do |f| %>
+
+<div>場所画像</div>
+<div><%= f.file_field :image %></div>
+<br>
+<div>場所名</div>
+<div><%= f.text_field :name %></div>
+<br>
+<div>場所説明</div>
+<div><%= f.text_area :explanation %></div>
+<br>
+<div>地域</div>
+<div><%= f.collection_select(:region_id, Region.all, :id, :name %></div>
+<br>
+<div>地面</div>
+<div><%= form.select :place_id %></div>
+<%= f.submit '変更を保存', class: 'btn btn-success px-4' %>
+<% end %>

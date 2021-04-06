@@ -1,0 +1,19 @@
+<h2>地域詳細</h2>
+<table>
+  <% @region.places.each do |region| %>
+  <tr>
+    <td>場所名</td>
+    <td>地面</td>
+  </tr>
+  <body>
+    <tr>
+      <td>
+        <%= link_to place_path(region.place) do %>
+        <%= region.place.name %>
+        <% end %>
+      </td>
+      <td><%= region.place.ground %></td>
+    </tr>
+    <% end %>
+  </body>
+</table>

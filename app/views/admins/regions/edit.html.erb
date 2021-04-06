@@ -1,0 +1,9 @@
+<h2>地域編集</h2>
+<%#= render 'layouts/errors', obj: @region %>
+<%= form_with model: @region, url: admins_region_path, local:true do |f| %>
+<div>
+  <%= f.label :"地域名" %>
+  <%= f.text_field :name, placeholder: "地域名" %>
+  <%= f.submit "変更を保存",class: 'btn btn-success px-4' %>
+</div>
+<% end %>

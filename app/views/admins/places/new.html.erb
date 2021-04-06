@@ -1,0 +1,21 @@
+<h2>場所新規登録</h2>
+<%#= render 'layouts/errors', obj: @place %>
+<%= form_with model: @place, url: admins_places_path, method: :post, local:true do |f| %>
+
+  <div>場所画像</div>
+  <div><%= f.file_field :image %></div>
+  <br>
+  <div>場所名</div>
+  <div><%= f.text_field :name, :placeholder => "場所名" %></div>
+  <br>
+  <div>場所説明</div>
+  <div><%= f.text_area :explanation, :placeholder => "ここに説明文を記述します" %></div>
+  <br>
+  <div>地域</div>
+  <div><%= f.collection_select(:region_id, Region.all, :id, :name,  {prompt: "--選択してください--"}) %></div>
+  <br>
+  <div>地面</div>
+  <div><%= f.select :place, [["コンクリート", "コンクリート"], ["砂", "砂"], ["砂利", "砂利"  ] ,["芝生", "芝生"]], include_blank: "状態を選択してください" %></div>
+  <br>
+  <%= f.submit '新規登録', class: 'btn btn-success px-4' %>
+<% end %>

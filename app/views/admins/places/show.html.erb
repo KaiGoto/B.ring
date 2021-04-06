@@ -1,5 +1,5 @@
 <h2>場所詳細</h2>
-<%= attachment_image_tag(@place, :image, :fill, 200, 200, format: 'jpeg', fallback: "images/no_image.jpg") %>
+<%= attachment_image_tag(@place, :image, :fill, 300, 200, format: 'jpeg', fallback: "img/no_image.jpg") %>
 
 <div>
   <div>場所名</div>
@@ -17,3 +17,4 @@
   <div>地域名</div>
   <div><%= @place.region %></div>
 </div>
+<%=link_to "編集する", edit_admins_place_path(@place), class: 'btn btn-success px-4' %>
