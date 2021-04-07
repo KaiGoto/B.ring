@@ -1,0 +1,54 @@
+<h2><span><%= @user.nickname %>さんの詳細ページ</span></h2>
+
+<table>
+  <thead>
+    <tr>
+      <td>会員ID</td>
+      <td><%= @user.id %></td>
+    </tr>
+    <tr>
+      <td>氏名</td>
+      <td><%= @user.last_name %>　<%= @user.first_name %></td>
+    </tr>
+    <tr>
+      <td>フリガナ</td>
+      <td><%= @user.k_last_name %>　<%= @user.k_first_name %></td>
+    </tr>
+    <tr>
+      <td>表示名</td>
+      <td><%= @user.nickname %></td>
+    </tr>
+    <tr>
+      <td>郵便番号</td>
+      <td><%= @user.postal_code %></td>
+    </tr>
+    <tr>
+      <td>住所</td>
+      <td><%= @user.address %></td>
+    </tr>
+    <tr>
+      <td>電話番号</td>
+      <td><%= @user.telephone_number %></td>
+    </tr>
+    <tr>
+      <td>メールアドレス</td>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <td>会員ステータス</td>
+      <% if @user.is_valid == true %>
+      <th class="text-success">有効</th>
+      <% else %>
+      <th class="text-secondary">退会</th>
+      <% end %>
+    </tr>
+    <tr>
+      <th></th>
+      <th>
+        <div>
+          <%= link_to "編集する", edit_admins_user_path, class: "btn btn-success px-5" %>
+        </div>
+      </th>
+    </tr>
+  </thead>
+</table>
