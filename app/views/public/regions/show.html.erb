@@ -1,6 +1,6 @@
-<h2><%= @region.name %>地域</h2>
+<h2><%= @regions.name %>地域</h2>
 <table>
-  <% @region.places.each do |region| %>
+  <% @regions.places.each do |region| %>
   <tr>
     <td>場所名</td>
     <td>地面</td>
@@ -8,7 +8,7 @@
   <body>
     <tr>
       <td>
-        <%= link_to place_path(@region) do %>
+        <%= link_to place_path(@regions) do %>
         <%= region.name %>
         <% end %>
       </td>

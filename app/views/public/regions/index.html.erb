@@ -11,7 +11,7 @@
     <% @region.each do |region| %>
     <tr>
       <td>
-        <%= link_to admins_region_path(region.id) do %>
+        <%= link_to region_path(region.id) do %>
         <%= region.name %>
         <% end %>
       </td>
