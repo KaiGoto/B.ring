@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :users, only: [:index, :show, :edit, :update]
     resources :places, only: [:index, :show, :new, :edit, :update, :create ]
-    resources :regions, only: [:index, :edit, :update, :create]
+    resources :regions, only: [:index, :show, :edit, :update, :create]
   end
 
   devise_for :users, skip: :all

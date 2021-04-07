@@ -1,0 +1,30 @@
+<h2>地域一覧・追加</h2>
+<p>全<%= @region_all.count %>地域</p>
+  <%= render 'layouts/errors_massage', obj: @regions %>
+  <%= form_with model: @regions, url: admins_regions_path, local: true do |f| %>
+  <div>
+    <%= f.label :"地域名" %>
+    <%= f.text_field :name, placeholder: "地域名" %>
+    <%= f.submit "新規登録",class: 'btn btn-success px-4' %>
+  </div>
+  <% end %>
+<table>
+  <thead>
+    <tr>
+      <th>地域名</th>
+      <th></th>
+    </tr>
+  </thead>
+  <body>
+    <% @region.each do |region| %>
+    <tr>
+      <td>
+        <%= link_to admins_region_path(region.id) do %>
+        <%= region.name %>
+        <% end %>
+      </td>
+      <td><%= link_to "編集する", edit_admins_region_path(region) %></td>
+    </tr>
+    <% end %>
+  </body>
+</table>
