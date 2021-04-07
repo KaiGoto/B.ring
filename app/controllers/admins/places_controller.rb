@@ -7,6 +7,7 @@ before_action :authenticate_admin!
 
   def index
     @place = Place.page(params[:page]).per(10)
+    @place_all = Place.all
     @region = Region.all
     if params[:name].present?
       @region = @region.get_by_name params[:name]
