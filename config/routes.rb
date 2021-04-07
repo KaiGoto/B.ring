@@ -24,6 +24,6 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :users, only: [:show, :edit, :update]
     resources :places, only: [:index, :show]
-    resources :regions, only: [:index]
+    resources :regions, only: [:index, :show]
   end
 end

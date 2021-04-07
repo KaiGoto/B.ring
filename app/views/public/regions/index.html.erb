@@ -1,0 +1,21 @@
+<h2>地域一覧</h2>
+<p>全<%= @region_all.count %>地域</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>地域名</th>
+    </tr>
+  </thead>
+  <body>
+    <% @region.each do |region| %>
+    <tr>
+      <td>
+        <%= link_to region_path(region.id) do %>
+        <%= region.name %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </body>
+</table>

@@ -15,5 +15,9 @@
 </div>
 <div>
   <div>地域名</div>
-  <div><%= @place.region.name %></div>
+  <div>
+    <%= link_to region_path do %>
+    <%= @place.region.name %>
+    <% end %>
+  </div>
 </div>
