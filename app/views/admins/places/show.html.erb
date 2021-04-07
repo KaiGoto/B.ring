@@ -15,6 +15,11 @@
 </div>
 <div>
   <div>地域名</div>
-  <div><%= @place.region.name %></div>
+  <div>
+    <%= link_to admins_region_path do %>
+    <%= @place.region.name %>
+    <% end %>
+    <!--地域詳細ページへのリンク-->
+  </div>
 </div>
 <%=link_to "編集する", edit_admins_place_path(@place), class: 'btn btn-success px-4' %>
