@@ -4,6 +4,10 @@
   <table>
     <thead>
       <tr>
+        <th class="fas fa-portrait">プロフィール画像</th>
+        <td><%= f.file_field :image_id, placeholder: "プロフィール画像" %></td>
+      </tr>
+      <tr>
         <th class="fas fa-signature">氏名</th>
         <td><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %></td>
         <td><%= f.text_field :first_name, autocomplete: "first_name" %></td>
