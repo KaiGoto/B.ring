@@ -16,6 +16,7 @@
 <div>
   <%= place.region.name %>
 </div>
+<div><%= link_to "#{place.comments.count} コメント", place_path(place.id) %></div>
 
 <%= paginate @place %>
 

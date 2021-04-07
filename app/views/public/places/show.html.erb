@@ -21,3 +21,22 @@
     <% end %>
   </div>
 </div>
+<div class="comments">
+<p>コメント件数：<%= @place.comments.count %></p>
+<% @place.comments.each do |comment| %>
+  <p><%= attachment_image_tag(@user, :image_id, :fill, 200, 200, format: 'jpeg', fallback: "/no_image.jpg") %></p>
+  <%= comment.user.name %>
+  <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+  <% if comment.user == current_user %>
+  <div class="comment-delete">
+    <%= link_to "削除", place_comment_path(comment.place, comment), method: :delete %>
+  </div>
+  <% end %>
+<% end %>
+</div>
+<div class="new-comment">
+<%= form_with(model:[@place, @comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+<% end %>
+</div>
