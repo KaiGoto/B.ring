@@ -7,7 +7,7 @@ class Public::RegionsController < ApplicationController
 
   def show
     @regions = Region.find(params[:id])
-     @place = Place.all
+    @place_all = Place.all
   end
 
 end
