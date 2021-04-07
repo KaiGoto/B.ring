@@ -1,7 +1,7 @@
 <h2>地域一覧・追加</h2>
-<p>全<%#= @region_all.count %>地域</p>
-  <%#= render 'layouts/errors', obj: @region %>
-  <%= form_with model: @region, url: admins_regions_path, local: true do |f| %>
+<p>全<%= @region_all.count %>地域</p>
+  <%= render 'layouts/errors_massage', obj: @regions %>
+  <%= form_with model: @regions, url: admins_regions_path, local: true do |f| %>
   <div>
     <%= f.label :"地域名" %>
     <%= f.text_field :name, placeholder: "地域名" %>

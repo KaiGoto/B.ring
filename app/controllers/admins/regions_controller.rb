@@ -9,7 +9,7 @@ before_action :authenticate_admin!
   def create
     @region = Region.new(region_params)
     if @region.save
-      redirect_to admins_region_path(@region)
+      redirect_to admins_region_path(@region), notice: '地域を作成しました'
     else
       render "index"
     end
@@ -17,7 +17,7 @@ before_action :authenticate_admin!
 
   def show
     @region = Region.find(params[:id])
-    @place = Place.new
+    @place = Place.all
   end
 
   def edit
@@ -27,7 +27,7 @@ before_action :authenticate_admin!
   def update
     @region = Region.find(params[:id])
     if @region.update(region_params)
-      redirect_to admins_regions_path
+      redirect_to admins_regions_path, notice: '更新しました'
     else
       render "edit"
     end

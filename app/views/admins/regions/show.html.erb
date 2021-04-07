@@ -8,11 +8,11 @@
   <body>
     <tr>
       <td>
-        <%= link_to place_path(region.place) do %>
-        <%= region.place.name %>
+        <%= link_to place_path(@region) do %>
+        <%= region.name %>
         <% end %>
       </td>
-      <td><%= region.place.ground %></td>
+      <td><%= region.ground %></td>
     </tr>
     <% end %>
   </body>

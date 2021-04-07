@@ -1,5 +1,5 @@
 <h2>地域編集</h2>
-<%#= render 'layouts/errors', obj: @region %>
+<%= render 'layouts/errors_massage', obj: @region %>
 <%= form_with model: @region, url: admins_region_path, local:true do |f| %>
 <div>
   <%= f.label :"地域名" %>

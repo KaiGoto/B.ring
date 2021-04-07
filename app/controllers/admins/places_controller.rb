@@ -3,6 +3,7 @@ before_action :authenticate_admin!
   def new
     @place = Place.new
     @places = Place.all
+    @region = Region.new
   end
 
   def index
