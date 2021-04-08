@@ -21,9 +21,24 @@
     <% end %>
   </div>
 </div>
+<div>
+  <% if @place.favorited_by?(current_user) %>
+    <p>
+      <%= link_to place_favorites_path(@place), method: :delete do %>
+      ♥<%= @place.favorites.count %>
+    　<% end %>
+  　</p>
+  <% else %>
+    <p>
+      <%= link_to place_favorites_path(@place), method: :post do %>
+      ♡<%= @place.favorites.count %>
+      <% end %>
+    </p>
+  <% end %>
+</div>
 <div class="comments">
-<p>コメント件数：<%= @place.place_comments.count %></p>
-<% @place.place_comments.each do |place_comment| %>
+  <p>コメント件数：<%= @place.place_comments.count %></p>
+  <% @place.place_comments.each do |place_comment| %>
   <p><%= attachment_image_tag(@user, :image_id, :fill, 200, 200, format: 'jpeg', fallback: "/no_image.jpg") %></p>
   <%= place_comment.user.nickname %>
   <%= place_comment.created_at.strftime('%Y/%m/%d') %><%= place_comment.comment %>
@@ -32,24 +47,10 @@
     <%= link_to "削除", place_place_comment_path(place_comment.place,place_comment), method: :delete %>
   </div>
   <% end %>
-  <% if @place.favorited_by?(current_user) %>
-    <p>
-      <%= link_to place_favorites_path(@place), method: :delete do %>
-        <div class="fas fa-heart"><%= @place.favorites.count %> いいね</div>
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to place_favorites_path(@place), method: :post do %>
-        <div class="far fa-heart"><%= @place.favorites.count %> いいね</div>
-      <% end %>
-    </p>
-    <% end %>
-</div>
-<% end %>
+  <% end %>
 <div class="new-comment">
-<%= form_with(model:[@place, @place_comment], local: true) do |f| %>
+  <%= form_with(model:[@place, @place_comment], local: true) do |f| %>
   <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
   <br><%= f.submit "送信する" %>
-<% end %>
+  <% end %>
 </div>
