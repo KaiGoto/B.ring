@@ -2,10 +2,15 @@
 
 <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
 
-  <%#= render 'layouts/errors', obj: @user %>
+  <%= render 'layouts/errors_massage', obj: @user %>
 
   <table>
     <thead>
+      <tr>
+        <td>プロフィール画像</td>
+        <td></td>
+        <td><%= f.file_field :image_id, placeholder: "プロフィール画像" %></td>
+      </tr>
       <tr>
         <td>名前</td>
         <td>（姓）</td>

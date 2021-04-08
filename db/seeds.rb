@@ -25,7 +25,7 @@ User.create!(
 )
 
 # Region.create!(
-#    name: "松原市"
+#    name: "南河内"
 # )
 
 # Place.create!(
