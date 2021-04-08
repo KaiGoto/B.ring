@@ -10,7 +10,7 @@ class Public::PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
-    @comment = Comment.new
+    @place_comment = PlaceComment.new
   end
 
 end
