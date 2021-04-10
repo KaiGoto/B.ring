@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>プロフィール画像</th>
       <th>会員ID</th>
       <th>氏名</th>
       <th>表示名</th>
@@ -13,6 +14,7 @@
   <body>
     <% @user.each do |user| %>
     <tr>
+      <td><%= attachment_image_tag(user, :image_id, :fill, 200, 200, format: 'jpeg', fallback: "/no_image.jpg") %></td>
       <td><%= user.id %></td>
       <td>
         <%= link_to admins_user_path(user) do %>

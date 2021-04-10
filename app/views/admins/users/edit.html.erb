@@ -4,6 +4,10 @@
 <%= form_with model: @user, url: admins_user_path, local: true do |f| %>
 <table>
   <thead>
+    <tr>
+      <th class="fas fa-portrait">プロフィール画像</th>
+      <td><%= f.file_field :image_id, placeholder: "プロフィール画像" %></td>
+    </tr>
 		<tr>
       <td>会員ID</td>
       <td><%= @user.id %></td>

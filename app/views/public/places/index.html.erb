@@ -1,7 +1,7 @@
 <h2>場所一覧</h2>
 <p>全<%= @place_all.count %>件</p>
 
-<%= @place.each do |place|%>
+<% @place.each do |place|%>
 <div>
   <%= link_to place_path(place.id) do %>
   <%= attachment_image_tag(place, :image, :fill, 200, 200, format: 'jpeg', fallback: "/no_image.jpg") %>
@@ -12,10 +12,10 @@
   <%= place.name %>
   <% end %>
 </div>
-<% end %>
 <div>
   <%= place.region.name %>
 </div>
-
+<div><%= link_to "#{place.place_comments.count} コメント", place_path(place.id) %></div>
+<% end %>
 <%= paginate @place %>
 
