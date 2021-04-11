@@ -90,12 +90,6 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
-<<<<<<< HEAD
-    dotenv (2.7.6)
-    dotenv-rails (2.7.6)
-      dotenv (= 2.7.6)
-      railties (>= 3.2)
-=======
     devise (4.7.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -104,7 +98,10 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
->>>>>>> 19d265c8c94b11127a02cc715e856c2a5fa10caf
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.7.0)
     ffi (1.15.0)
@@ -140,7 +137,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.9.0)
+    loofah (2.9.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -151,19 +148,16 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0225)
     mini_magick (4.11.0)
-    mini_mime (1.0.3)
+    mini_mime (1.1.0)
     mini_portile2 (2.5.0)
     minitest (5.14.4)
     msgpack (1.4.2)
-<<<<<<< HEAD
-    mysql2 (0.5.3)
-=======
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    mysql2 (0.5.3)
     netrc (0.11.0)
->>>>>>> 19d265c8c94b11127a02cc715e856c2a5fa10caf
     nio4r (2.5.7)
-    nokogiri (1.11.2)
+    nokogiri (1.11.3)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -300,21 +294,15 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
-<<<<<<< HEAD
-  dotenv-rails
-=======
   devise
+  dotenv-rails
   font-awesome-sass (~> 5.13)
->>>>>>> 19d265c8c94b11127a02cc715e856c2a5fa10caf
   jbuilder (~> 2.5)
   jquery-rails
   kaminari (~> 1.2.1)
   listen (>= 3.0.5, < 3.2)
-<<<<<<< HEAD
   mysql2
-=======
   pry-byebug
->>>>>>> 19d265c8c94b11127a02cc715e856c2a5fa10caf
   puma (~> 3.11)
   rails (~> 5.2.5)
   refile!
