@@ -16,7 +16,7 @@ jobs:
         HOST_NAME: ${{ secrets.HOST_NAME }}
       run: |
         echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-        ssh -i private_key ec2-user@${HOST_NAME} 'cd B.ring &&
+        ssh -i private_key ec2-user@13.114.142.9 'cd B.ring &&
         git pull origin master &&
         ~/.rbenv/shims/bundle install &&
         ~/.rbenv/shims/bundle exec rails assets:precompile RAILS_ENV=production &&
