@@ -1,4 +1,5 @@
 class Public::PlacesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @place = Place.page(params[:page]).per(5) #kaminari
     @place_all = Place.all
@@ -11,6 +12,7 @@ class Public::PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @place_comment = PlaceComment.new
+    @place_comments = @place.place_comments.order(created_at: :desc)  #新着順
   end
 
 end
