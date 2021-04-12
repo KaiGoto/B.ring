@@ -1,0 +1,15 @@
+<div>
+  <% if place.favorited_by?(current_user) %>
+    <p>
+      <%= link_to place_favorites_path(place), method: :delete do %>
+      ♥<%= place.favorites.count %>
+    　<% end %>
+  　</p>
+  <% else %>
+    <p>
+      <%= link_to place_favorites_path(place), method: :post do %>
+      ♡<%= place.favorites.count %>
+      <% end %>
+    </p>
+  <% end %>
+</div>
