@@ -15,6 +15,6 @@ class User < ApplicationRecord
          validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+-.]+@[a-z\d-]+(.[a-z\d-]+)*.[a-z]+\z/i, message: 'は半角英数字で入力してください' }
 
   has_many :places, dependent: :destroy
-  has_many :place_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :place_comments, dependent: :destroy
 end
