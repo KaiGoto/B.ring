@@ -2,10 +2,10 @@ class Public::PlaceCommentsController < ApplicationController
   before_action :authenticate_user!
   def create
     @place = Place.find(params[:place_id])
-    comment = current_user.place_comments.build(place_comment_params)
-    comment.place_id = @place.id
-    comment.save
-    @place_comment = PlaceComment.new
+    @comment = current_user.place_comments.build(place_comment_params)
+    @comment.place_id = @place.id
+    @comment.save
+    render :index
   end
 
   def destroy

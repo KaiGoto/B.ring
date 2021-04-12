@@ -4,7 +4,6 @@
         ♥<%= place.favorites.count %>
     　<% end %>
   <% else %>
-    <p>
       <%= link_to place_favorites_path(place), method: :post, remote: true do %>
         ♡<%= place.favorites.count %>
   <% end %>
