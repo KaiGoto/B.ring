@@ -1,21 +1,32 @@
 <header>
   <nav>
+    <!--ロゴからトップページへ-->
     <%= link_to root_path do %>
     <%= image_tag('logo.png', size: '95x95') %>
     <% end %>
+    <!--検索機能-->
+    <%= form_tag(search_search_path, method: :get) do %>
+    <%= text_field_tag 'search[content]' %>
+    <%= select_tag 'search[model]', options_for_select({ "Region" => "region", "Place" => "place" }) %>
+    <%= select_tag 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
+    <%= submit_tag '検索', class: "btn btn-primary" %>
+    <% end %>
     <ul>
+      <!--ユーザーログイン後-->
       <% if user_signed_in? %>
         <li><%= current_user.nickname %>さん,Welcome!</li>
         <li><%= link_to "Mypage", user_path(current_user.id), class:"fas fa-user nav-link text-light" %></li>
         <li><%= link_to "地域一覧", regions_path, class:"fas fa-globe-asia nav-link text-light" %></li>
         <li ><%= link_to "場所一覧", places_path, class:"fas fa-map-matker-alt nav-link text-light" %></li>
         <li><%= link_to "Logout", destroy_user_session_path, class:"fas fa-sign-out-alt nav-link text-light" %></li>
+      <!--管理者ログイン後-->
       <% elsif admin_signed_in? %>
         <li>管理者</li>
         <li ><%= link_to "場所一覧", admins_places_path, class:"fas fa-map-matker-alt nav-link text-light" %></li>
         <li><%= link_to "地域一覧", admins_regions_path, class:"fas fa-globe-asia nav-link text-light" %></li>
         <li><%= link_to "会員一覧", admins_users_path, class:"fas fa-user nav-link text-light" %></li>
         <li><%= link_to "Logout", destroy_admin_session_path, method: :delete, class:"fas fa-sign-out-alt nav-link text-light" %></li>
+      <!--ログイン前-->
       <% else %>
         <li><%= link_to "About", about_path, class:"fas fa-basketball-ball nav-link text-light" %></li>
         <li><%= link_to "地域一覧", regions_path, class:"fas fa-globe-asia nav-link text-light" %> </li>
