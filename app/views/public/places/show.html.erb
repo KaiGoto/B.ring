@@ -1,5 +1,5 @@
 <h2>場所詳細</h2>
-<%= attachment_image_tag(@place, :image, :fill, 200, 200, format: 'jpeg', fallback: "/no_image.jpg") %>
+<%= attachment_image_tag(@place, :image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %>
 
 <div>
   <div>場所名</div>
@@ -22,6 +22,7 @@
   </div>
 </div>
 <!--いいね機能ページ-->
-<%= render 'public/places/favorite', place: @place %>
+<%= render 'public/favorites/favorite', place: @place %>
 <!--コメントページ-->
-<%= render 'public/places/comment', place: @place %>
+<div id="place_comment-<%= @place.id %>">
+<%= render 'public/comments/comment', place: @place, place_coment: @place_comment %>

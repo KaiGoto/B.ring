@@ -2,8 +2,8 @@ class Place < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :region
   attachment :image
-  has_many :place_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :place_comments, dependent: :destroy
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
