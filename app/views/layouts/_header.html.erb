@@ -5,12 +5,16 @@
     <%= image_tag('logo.png', size: '95x95') %>
     <% end %>
     <!--検索機能-->
-    <%= form_tag(search_search_path, method: :get) do %>
-    <%= text_field_tag 'search[content]' %>
-    <%= select_tag 'search[model]', options_for_select({ "Region" => "region", "Place" => "place" }) %>
-    <%= select_tag 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
-    <%= submit_tag '検索', class: "btn btn-primary" %>
-    <% end %>
+    <div class='search-form'>
+      <% if user_signed_in? %>
+        <%= form_tag(searches_path, method: :get) do %>
+        <%= text_field_tag 'search[content]' %>
+        <%= select_tag 'search[model]', options_for_select({ "地域名" => "region", "場所名" => "place" }) %>
+        <%= select_tag 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
+        <%= submit_tag '検索', class: "btn btn-primary" %>
+        <% end %>
+       <% end %>
+    </div>
     <ul>
       <!--ユーザーログイン後-->
       <% if user_signed_in? %>
