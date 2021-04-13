@@ -25,7 +25,7 @@ class Public::ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      ContactMailer.send_mail(@contact).deliver_now
+      NotificationMailer.contact_created(@contact).deliver_now
       redirect_to done_path
     else
       render :new
@@ -38,6 +38,6 @@ class Public::ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:email, :name, :phone_number, :subject, :message)
+    params.require(:contact).permit(:email, :name, :telephone_number, :subject, :message)
   end
 end
