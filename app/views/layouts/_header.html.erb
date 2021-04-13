@@ -21,8 +21,9 @@
         <li><%= current_user.nickname %>さん,Welcome!</li>
         <li><%= link_to "Mypage", user_path(current_user.id), class:"fas fa-user nav-link text-light" %></li>
         <li><%= link_to "地域一覧", regions_path, class:"fas fa-globe-asia nav-link text-light" %></li>
-        <li ><%= link_to "場所一覧", places_path, class:"fas fa-map-matker-alt nav-link text-light" %></li>
+        <li><%= link_to "場所一覧", places_path, class:"fas fa-map-matker-alt nav-link text-light" %></li>
         <li><%= link_to "Logout", destroy_user_session_path, class:"fas fa-sign-out-alt nav-link text-light" %></li>
+        <li><%= link_to "お問い合わせ", new_contact_path, class:"fas fa-paper-plane" %></li>
       <!--管理者ログイン後-->
       <% elsif admin_signed_in? %>
         <li>管理者</li>
