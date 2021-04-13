@@ -1,44 +1,50 @@
-<header>
-  <nav>
-    <!--ロゴからトップページへ-->
-    <%= link_to root_path do %>
-    <%= image_tag('logo.png', size: '95x95') %>
-    <% end %>
-    <!--検索機能-->
-    <div class='search-form'>
-      <% if user_signed_in? %>
-        <%= form_tag(searches_path, method: :get) do %>
-        <%= text_field_tag 'search[content]' %>
-        <%= select_tag 'search[model]', options_for_select({ "地域名" => "region", "場所名" => "place" }) %>
-        <%= select_tag 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
-        <%= submit_tag '検索', class: "btn btn-primary" %>
-        <% end %>
-       <% end %>
-    </div>
-    <ul>
-      <!--ユーザーログイン後-->
-      <% if user_signed_in? %>
-        <li><%= current_user.nickname %>さん,Welcome!</li>
-        <li><%= link_to "Mypage", user_path(current_user.id), class:"fas fa-user nav-link text-light" %></li>
-        <li><%= link_to "地域一覧", regions_path, class:"fas fa-globe-asia nav-link text-light" %></li>
-        <li><%= link_to "場所一覧", places_path, class:"fas fa-map-matker-alt nav-link text-light" %></li>
-        <li><%= link_to "Logout", destroy_user_session_path, class:"fas fa-sign-out-alt nav-link text-light" %></li>
-        <li><%= link_to "お問い合わせ", new_contact_path, class:"fas fa-paper-plane" %></li>
-      <!--管理者ログイン後-->
-      <% elsif admin_signed_in? %>
-        <li>管理者</li>
-        <li ><%= link_to "場所一覧", admins_places_path, class:"fas fa-map-matker-alt nav-link text-light" %></li>
-        <li><%= link_to "地域一覧", admins_regions_path, class:"fas fa-globe-asia nav-link text-light" %></li>
-        <li><%= link_to "会員一覧", admins_users_path, class:"fas fa-user nav-link text-light" %></li>
-        <li><%= link_to "Logout", destroy_admin_session_path, method: :delete, class:"fas fa-sign-out-alt nav-link text-light" %></li>
-      <!--ログイン前-->
-      <% else %>
-        <li><%= link_to "About", about_path, class:"fas fa-basketball-ball nav-link text-light" %></li>
-        <li><%= link_to "地域一覧", regions_path, class:"fas fa-globe-asia nav-link text-light" %> </li>
-        <li ><%= link_to "場所一覧", places_path, class:"fas fa-map-matker-alt nav-link text-light" %></li>
-        <li><%= link_to "新規登録", new_user_registration_path, class:"fas fa-user-plus nav-link text-light" %></li>
-        <li><%= link_to "Login", new_user_session_path, class:"fas fa-sign-in-alt nav-link text-light" %></li>
+<header class=" header border-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container mt-2">
+      <!--ロゴからトップページへ-->
+      <%= link_to root_path do %>
+      <%= image_tag('logo.png', size: '95x95') %>
       <% end %>
-    </ul>
+      <!--検索機能-->
+      <div class='search-form mr-4 ml-4'>
+        <% if user_signed_in? %>
+          <%= form_tag(searches_path, method: :get) do %>
+          <%= text_field_tag 'search[content]' %>
+          <%= select_tag 'search[model]', options_for_select({ "地域名" => "region", "場所名" => "place" }) %>
+          <%= select_tag 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
+          <%= submit_tag '検索', class: "btn btn-primary" %>
+          <% end %>
+         <% end %>
+      </div>
+      <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">-->
+      <!--  <span class="navbar-toggler-icon"></span>-->
+      <!--</button>-->
+      <div class="navbar-collapse collapse" id="navbarNavDropdown" style="">
+        <ul class="navbar-nav ml-auto">
+          <!--ユーザーログイン後-->
+          <% if user_signed_in? %>
+            <li><%= link_to "Mypage", user_path(current_user.id), class:"fas fa-user text-body mr-4" %></li>
+            <li><%= link_to "地域一覧", regions_path, class:"fas fa-globe-asia text-body mr-4" %></li>
+            <li><%= link_to "場所一覧", places_path, class:"fas fa-map-marker-alt text-body mr-4" %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, class:"fas fa-sign-out-alt text-body mr-4" %></li>
+            <li><%= link_to "お問い合わせ", new_contact_path, class:"fas fa-paper-plane text-body mr-4" %></li>
+          <!--管理者ログイン後-->
+          <% elsif admin_signed_in? %>
+            <li>管理者</li>
+            <li><%= link_to "場所一覧", admins_places_path, class:"fas fa-map-marker-alt" %></li>
+            <li><%= link_to "地域一覧", admins_regions_path, class:"fas fa-globe-asia nav-link" %></li>
+            <li><%= link_to "会員一覧", admins_users_path, class:"fas fa-user" %></li>
+            <li><%= link_to "Logout", destroy_admin_session_path, method: :delete, class:"fas fa-sign-out-alt" %></li>
+          <!--ログイン前-->
+          <% else %>
+            <li><%= link_to "About", about_path, class:"fas fa-basketball-ball" %></li>
+            <li><%= link_to "地域一覧", regions_path, class:"fas fa-globe-asia" %> </li>
+            <li><%= link_to "場所一覧", places_path, class:"fas fa-map-marker-alt" %></li>
+            <li><%= link_to "新規登録", new_user_registration_path, class:"fas fa-user-plus" %></li>
+            <li><%= link_to "Login", new_user_session_path, class:"fas fa-sign-in-alt" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </nav>
 </header>

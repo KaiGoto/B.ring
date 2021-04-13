@@ -1,4 +1,7 @@
 <h4>
+  <% if user_signed_in? %>
+    <%= current_user.nickname %>さん
+  <% end %>
   Welcome to <strong>B.ring!!</strong></br>
   このサイトは、大阪府内にある屋外バスケットボールコートの共有サイトになります。</br>
   会員でない方も閲覧することはできますが、コメントする際には会員登録が必要となります。</br>
