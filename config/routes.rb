@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'homes#top'
+  get 'search/search'
   get '/about' => 'homes#about'
   devise_for :admins, controllers: {
   sessions: 'admins/sessions'
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     get 'users/sign_up' => 'public/registrations#new', as: 'new_user_registration'
     post 'users' => 'public/registrations#create', as: 'user_registration'
     get 'users/password/new' => 'public/passwords#new', as: 'new_user_password'
+    get '/searches' => 'searches#search'
   end
 
   scope module: :public do
