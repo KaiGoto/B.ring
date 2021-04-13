@@ -1,6 +1,6 @@
 class NotificationMailer < ApplicationMailer
   def contact_created(contact)
     @contact = contact
-    mail(to: ENV["TOMAIL"], subject: 'contact created')
+    mail(to: contact.email, subject: 'contact created')
   end
 end

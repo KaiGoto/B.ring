@@ -5,7 +5,12 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :message, 'メッセージ*' %>
+    <%= f.label :email, 'メールアドレス' %>
+    <%= f.text_field :email, autofocus: true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :message, 'メッセージ' %>
     <%= f.text_area :message, size: '15x5', class: 'form-control' %>
   </div>
 
