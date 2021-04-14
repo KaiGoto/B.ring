@@ -1,5 +1,5 @@
 class Public::PlacesController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   def index
     @place = Place.page(params[:page]).per(5) #kaminari
     @place_all = Place.all
