@@ -14,6 +14,7 @@ class User < ApplicationRecord
          validates :telephone_number,presence: true, uniqueness: true, format: { with: /\A\d{10,11}\z/, message: 'は半角数字10桁または11桁で入力してください' }
          validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+-.]+@[a-z\d-]+(.[a-z\d-]+)*.[a-z]+\z/i, message: 'は半角英数字で入力してください' }
 
+  attachment :image
   has_many :places, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :place_comments, dependent: :destroy

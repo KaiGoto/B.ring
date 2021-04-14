@@ -3,7 +3,6 @@
   <h5>会員の方はこのページからログイン</h5>
   <p id="alert-notice"><%= notice %></p>
   <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-  <%= render 'layouts/errors_massage', obj: @user %>
   <div class="row col-12 text-center">
     <table class="offset-3">
       <thead>

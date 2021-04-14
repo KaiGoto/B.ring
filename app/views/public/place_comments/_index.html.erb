@@ -1,18 +1,23 @@
-<p>コメント件数：<%= @place.place_comments.count %></p>
 <div class="commentlist">
   <% @place.place_comments.each do |place_comment| %>
   <div class="commentitem">
     <!--ユーザー画像-->
-    <p><%= attachment_image_tag(@user, :image_id, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></p>
-    <!--ユーザー表示名-->
-    <%= place_comment.user.nickname %>
-    <!--コメントをした時間-->
-    <%= place_comment.created_at.strftime('%Y/%m/%d') %><%= place_comment.comment %>
-    <% if place_comment.user == current_user %>
-    <div class="comment-delete">
-      <%= link_to "削除", place_place_comment_path(place_comment.place,place_comment), method: :delete, remote: true %>
-    </div>
-    <% end %>
+    <tr>
+      <td><%= attachment_image_tag(@user, :image_id, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></td>
+      <!--ユーザー表示名-->
+      <td><%= place_comment.user.nickname %>さん</td>
+      <!--コメントをした時間-->
+      <td><%= place_comment.created_at.strftime('%Y/%m/%d') %></td>
+      <!--コメント-->
+      <td><%= place_comment.comment %></td>
+      <td>
+        <% if place_comment.user == current_user %>
+        <div class="comment-delete">
+          <%= link_to "削除", place_place_comment_path(place_comment.place,place_comment), method: :delete, remote: true, class:"btn btn-danger px-4" %>
+        </div>
+        <% end %>
+      </td>
+    </tr>
   </div>
   <% end %>
 </div>

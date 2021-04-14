@@ -1,41 +1,68 @@
-<h2>場所詳細</h2>
-<%= attachment_image_tag(@place, :image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %>
-
-<div>
-  <div>場所名</div>
-  <div><%= @place.name %></div>
-</div>
-<div>
-  <div>地面</div>
-  <div><%= @place.ground %></div>
-</div>
-<div>
-  <div>場所説明</div>
-  <div><%= @place.explanation %></div>
-</div>
-<div>
-  <div>地域名</div>
-  <div>
-    <%= link_to region_path do %>
-    <%= @place.region.name %>
-    <% end %>
-  </div>
-</div>
-<% if user_signed_in? %>
-  <!--いいね機能ページ-->
-  <div id="favorite-<%= @place.id %>">
-    <%= render 'public/favorites/favorite', place: @place %>
-  </div>
-  <!--コメントページ-->
-  <div class="comments">
-    <div id="place_comment">
-      <%= render 'public/place_comments/index', place: @place %>
-    </div>
-    <div class="new-comment">
-      <%= form_with(model:[@place, @place_comment], remote: true) do |f| %>
-      <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-      <br><%= f.submit "送信する" %>
+<div class="container mt-2">
+  <h2>場所詳細</h2>
+  <div class="row col-12">
+    <span class="col-4"><%= attachment_image_tag(@place, :image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></span>
+    <div class="col-8">
+      <table>
+        <thead>
+          <tr>
+            <td>場所名</td>
+            <td><%= @place.name %></td>
+          </tr>
+          <tr>
+            <td>地面</td>
+            <td><%= @place.ground %></td>
+          </tr>
+          <tr>
+            <td>場所説明</td>
+            <td><%= @place.explanation %></td>
+          </tr>
+          <tr>
+            <td>地域名</td>
+            <td>
+              <%= link_to region_path do %>
+              <%= @place.region.name %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>いいね数</td>
+            <td>
+              <% if user_signed_in? %>
+              <!--いいね機能ページ-->
+              <div id="favorite-<%= @place.id %>">
+                <%= render 'public/favorites/favorite', place: @place %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>コメント件数</td>
+            <td><%= @place.place_comments.count %></td>
+          </tr>
+        </thead>
+      </table>
+      <table>
+        <thead>
+          <tr>
+            <!--コメントページ-->
+            <div class="comments">
+              <div id="place_comment">
+                <td>
+                  <%= render 'public/place_comments/index', place: @place %>
+                </td>
+              </div>
+            </div>
+          </tr>
+        </thead>
+      </table>
+          <div class="new-comment">
+            <%= form_with(model:[@place, @place_comment], remote: true) do |f| %>
+            <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+            <br><%= f.submit "送信する", class:"btn btn-primary px-4" %>
+            <% end %>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
-<% end %>
+</div>

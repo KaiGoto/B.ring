@@ -3,7 +3,7 @@ class Public::FavoritesController < ApplicationController
   def create
     place = Place.find(params[:place_id])
     favorite = current_user.favorites.new(place_id: place.id)
-    favorite.save3434
+    favorite.save
   end
 
   def destroy
