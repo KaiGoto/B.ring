@@ -18,8 +18,14 @@
  @import 'font-awesome';
 
 .header {
-  display:flex;
+  display: flex;
 }
-li {
+
+.ul {
+  display: inline;
+  float: right;
+}
+
+.li {
   list-style: none;
 }
