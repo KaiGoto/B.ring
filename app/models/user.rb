@@ -17,5 +17,6 @@ class User < ApplicationRecord
   attachment :image
   has_many :places, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorited_places, through: :favorites, source: :place
   has_many :place_comments, dependent: :destroy
 end
