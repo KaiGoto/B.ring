@@ -32,7 +32,7 @@
             <li><%= link_to "お問い合わせ", new_contact_path, class:"fas fa-paper-plane text-body mr-4" %></li>
           <!--管理者ログイン後-->
           <% elsif admin_signed_in? %>
-            <li>管理者</li>
+            <li class="text-body mr-4">管理者</li>
             <li><%= link_to "場所一覧", admins_places_path, class:"fas fa-map-marker-alt text-body mr-4" %></li>
             <li><%= link_to "地域一覧", admins_regions_path, class:"fas fa-globe-asia text-body mr-4" %></li>
             <li><%= link_to "会員一覧", admins_users_path, class:"fas fa-user text-body mr-4" %></li>

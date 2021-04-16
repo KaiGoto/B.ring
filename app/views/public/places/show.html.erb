@@ -2,11 +2,11 @@
   <h2>場所詳細</h2>
   <div class="row col-12">
     <span class="col-4"><%= attachment_image_tag(@place, :image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></span>
-    <div class="col-8">
+    <div class="col-md-8">
       <table>
         <thead>
           <tr>
-            <td>場所名</td>
+            <td width="150">場所名</td>
             <td><%= @place.name %></td>
           </tr>
           <tr>
@@ -55,10 +55,10 @@
           </tr>
         </thead>
       </table>
-          <div class="new-comment">
+          <div class="new-comment text-center">
             <%= form_with(model:[@place, @place_comment], remote: true) do |f| %>
-            <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-            <br><%= f.submit "送信する", class:"btn btn-primary px-4" %>
+            <%= f.text_area :comment, rows:'5', cols:"40",placeholder: "コメントをここに" %>
+            <br><span class="text-center"><%= f.submit "送信する", class:"btn btn-primary px-4" %></span>
             <% end %>
           </div>
         </div>
