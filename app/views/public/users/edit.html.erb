@@ -1,8 +1,8 @@
 <div class="container mt-2">
   <h2>登録情報編集</h2><br>
-  <div class="row offset-2">
-    <%= form_with model: @user, local:true do |f| %>
-      <table>
+  <%= form_with model: @user, local:true do |f| %>
+  <div class="row">
+      <table class="mx-auto">
         <thead>
           <tr>
             <th class="fas fa-portrait">プロフィール画像</th>
@@ -48,15 +48,13 @@
             <td></td>
             <td></td>
           </tr>
-          <tr>
-            <td></td>
-            <td><%= f.submit '編集内容を保存', class:"btn btn-success px-4" %></td>
-            <td></td>
-            <td><%#= link_to "退会する", confirm_confirm_path, class:"btn btn-danger px-4" %></td>
-            <!--退会機能実装後-->
-          </tr>
         </thead>
       </table>
-      <% end %>
-    </div>
   </div>
+      <div class="text-center">
+        <%= f.submit '編集内容を保存', class:"btn btn-success px-4" %>
+        <%#= link_to "退会する", confirm_confirm_path, class:"btn btn-danger px-4" %>
+              <!--退会機能実装後-->
+      </div>
+      <% end %>
+</div>

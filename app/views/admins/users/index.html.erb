@@ -1,35 +1,43 @@
-<h2>会員一覧</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>プロフィール画像</th>
-      <th>会員ID</th>
-      <th>氏名</th>
-      <th>表示名</th>
-      <th>メールアドレス</th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <body>
-    <% @user.each do |user| %>
-    <tr>
-      <td><%= attachment_image_tag(user, :image_id, :fill, 200, 200, format: 'jpeg', fallback: "/no_image.jpg") %></td>
-      <td><%= user.id %></td>
-      <td>
-        <%= link_to admins_user_path(user) do %>
-        <p><%= user.last_name %><%= user.first_name %></p>
-        <% end %>
-      </td>
-      <td><%= user.nickname %></td>
-      <td><%= user.email %></td>
-      <% if user.is_valid == true %>
-      <td class="text-success">有効</td>
-      <% else %>
-      <td class="text-secondary">退会</td>
+<div class="container mt-2">
+  <h2>会員一覧</h2>
+  <div class="row">
+    <table class="mx-auto">
+      <% @user.each do |user| %>
+      <thead>
+        <tr>
+          <td width="150">プロフィール画像</td>
+          <td><%= attachment_image_tag(user, :image_id, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></td>
+        </tr>
+        <tr>
+          <td>会員ID</td>
+          <td><%= user.id %></td>
+        </tr>
+        <tr>
+          <td>氏名</td>
+          <td>
+            <%= link_to admins_user_path(user) do %>
+            <%= user.last_name %><%= user.first_name %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>表示名</td>
+          <td><%= user.nickname %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= user.email %></td>
+        </tr>
+          <td>ステータス</td>
+          <% if user.is_valid == true %>
+          <td class="text-success">有効</td>
+          <% else %>
+          <td class="text-secondary">退会</td>
+          <% end %>
+        </tr>
+      </thead>
       <% end %>
-    </tr>
-    <% end %>
-  </body>
-</table>
-<%= paginate @user %>
+    </table>
+    <%= paginate @user %>
+  </div>
+</div>

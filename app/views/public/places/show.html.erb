@@ -1,8 +1,15 @@
 <div class="container mt-2">
   <h2>場所詳細</h2>
-  <div class="row col-12">
+  <font color="red">いいね数</font>
+  <% if user_signed_in? %>
+  <!--いいね機能ページ-->
+  <div id="favorite-<%= @place.id %>">
+    <%= render 'public/favorites/favorite', place: @place %>
+  </div>
+  <% end %>
+  <div class="row">
     <span class="col-4"><%= attachment_image_tag(@place, :image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></span>
-    <div class="col-md-8">
+    <div class="col-8">
       <table>
         <thead>
           <tr>
@@ -25,17 +32,6 @@
               <% end %>
             </td>
           </tr>
-          <tr>
-            <td>いいね数</td>
-            <td>
-              <% if user_signed_in? %>
-              <!--いいね機能ページ-->
-              <div id="favorite-<%= @place.id %>">
-                <%= render 'public/favorites/favorite', place: @place %>
-              </div>
-            </td>
-          </tr>
-          <tr>
             <td>コメント件数</td>
             <td><%= @place.place_comments.count %></td>
           </tr>
@@ -47,7 +43,7 @@
             <!--コメントページ-->
             <div class="comments">
               <div id="place_comment">
-                <td>
+                <td width="150">
                   <%= render 'public/place_comments/index', place: @place %>
                 </td>
               </div>
@@ -61,8 +57,7 @@
             <br><span class="text-center"><%= f.submit "送信する", class:"btn btn-primary px-4" %></span>
             <% end %>
           </div>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>
+

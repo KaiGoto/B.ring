@@ -1,62 +1,63 @@
-<h4><span><%= @user.nickname %>さんの情報編集ページ</span></h4>
+<div class="container mt-2">
+  <h4><span><%= @user.nickname %>さんの情報編集ページ</span></h4>
 
-
-<%= form_with model: @user, url: admins_user_path, local: true do |f| %>
-<table>
-  <thead>
-    <tr>
-      <th class="fas fa-portrait">プロフィール画像</th>
-      <td><%= f.file_field :image_id, placeholder: "プロフィール画像" %></td>
-    </tr>
-		<tr>
-      <td>会員ID</td>
-      <td><%= @user.id %></td>
-    </tr>
-    <tr>
-      <td>氏名</td>
-      <td><%= f.text_field :last_name, placeholder: "大阪", autofocus: true, autocomplete: "last_name" %></td>
-      <td><%= f.text_field :first_name, placeholder: "太郎", autofocus: true, autocomplete: "first_name" %></td>
-    </tr>
-    <tr>
-      <td>フリガナ</td>
-      <td><%= f.text_field :k_last_name, placeholder: "オオサカ", autofocus: true, autocomplete: "k_last_name" %></td>
-      <td><%= f.text_field :k_first_name, placeholder: "タロウ", autofocus: true, autocomplete: "k_first_name" %></td>
-    </tr>
-    <tr>
-      <td>表示名</td>
-      <td><%= f.text_field :nickname, placeholder: "なにわ", autofocus: true, autocomplete: "nickname" %></td>
-    <tr>
-      <td>郵便番号</td>
-      <td>
-        <%= f.text_field :postal_code, placeholder: "0000000", autofocus: true, autocomplete: "postal_code" %>
-      </td>
-    </tr>
-    <tr>
-      <td>住所</td>
-      <td colspan="3"><%= f.text_field :address, placeholder: "大阪府大阪市中央区1-1-1", autofocus: true, autocomplete: "address", class: "hoge", size: 60 %></td>
-    </tr>
-    <tr>
-      <td>電話番号</td>
-      <td><%= f.text_field :telephone_number, placeholder: "0000000000", autofocus: true, autocomplete: "telephone_number" %></td>
-    </tr>
-    <tr>
-      <td>メールアドレス</th>
-      <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
-      <th></th>
-    </tr>
-    <tr>
-      <td>会員ステータス</th>
-      <th><%= f.radio_button :is_valid, :true %>
-        　<%= f.label :is_valid, "有効", {value: :true, style: "display: inline-block;"} %>
-          <%= f.radio_button :is_valid, :false, class: "ml-5" %>
-          <%= f.label :is_valid, "退会", {value: :false, style: "display: inline-block;"} %></th>
-      <th></th>
-    </tr>
-    <tr>
-		  <th></th>
-      <th><%= f.submit "変更を保存", class: "btn btn-success" %></th>
-      <th></th>
-		</tr>
-  </thead>
-</table>
-<% end %>
+  <%= form_with model: @user, url: admins_user_path, local: true do |f| %>
+  <div class="row"></div>
+    <table class="mx-auto">
+      <thead>
+        <tr>
+          <td>プロフィール画像</td>
+          <td><%= f.file_field :image_id, placeholder: "プロフィール画像" %></td>
+        </tr>
+    		<tr>
+          <td>会員ID</td>
+          <td><%= @user.id %></td>
+        </tr>
+        <tr>
+          <td>氏名</td>
+          <td><%= f.text_field :last_name, placeholder: "大阪", autofocus: true, autocomplete: "last_name" %></td>
+          <td><%= f.text_field :first_name, placeholder: "太郎", autofocus: true, autocomplete: "first_name" %></td>
+        </tr>
+        <tr>
+          <td>フリガナ</td>
+          <td><%= f.text_field :k_last_name, placeholder: "オオサカ", autofocus: true, autocomplete: "k_last_name" %></td>
+          <td><%= f.text_field :k_first_name, placeholder: "タロウ", autofocus: true, autocomplete: "k_first_name" %></td>
+        </tr>
+        <tr>
+          <td>表示名</td>
+          <td><%= f.text_field :nickname, placeholder: "なにわ", autofocus: true, autocomplete: "nickname" %></td>
+        <tr>
+          <td>郵便番号</td>
+          <td>
+            <%= f.text_field :postal_code, placeholder: "0000000", autofocus: true, autocomplete: "postal_code" %>
+          </td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td colspan="3"><%= f.text_field :address, placeholder: "大阪府大阪市中央区1-1-1", autofocus: true, autocomplete: "address", class: "hoge", size: 60 %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= f.text_field :telephone_number, placeholder: "0000000000", autofocus: true, autocomplete: "telephone_number" %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</th>
+          <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
+          <th></th>
+        </tr>
+        <tr>
+          <td>会員ステータス</th>
+          <th><%= f.radio_button :is_valid, :true %>
+            　<%= f.label :is_valid, "有効", {value: :true, style: "display: inline-block;"} %>
+              <%= f.radio_button :is_valid, :false, class: "ml-5" %>
+              <%= f.label :is_valid, "退会", {value: :false, style: "display: inline-block;"} %></th>
+          <th></th>
+        </tr>
+      </thead>
+    </table>
+    <div class="text-center">
+      <%= f.submit "変更を保存", class: "btn btn-success" %>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -42,6 +42,13 @@ before_action :authenticate_admin!
     end
   end
 
+  def destroy
+    @place = Place.find(params[:id])
+    @place.destroy
+    flash[:notice] ='Place was successfully created.'
+    redirect_to admins_places_path
+  end
+
   private
   def place_params
     params.require(:place).permit(:image_id, :name, :explanation, :region_id, :ground)

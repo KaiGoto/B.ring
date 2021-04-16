@@ -1,25 +1,36 @@
-<h2>場所詳細</h2>
-<%= attachment_image_tag(@place, :image, :fill, 300, 200, format: 'jpeg', fallback: "/no_image.jpg") %>
-
-<div>
-  <div>場所名</div>
-  <div><%= @place.name %></div>
-</div>
-<div>
-  <div>地面</div>
-  <div><%= @place.ground %></div>
-</div>
-<div>
-  <div>場所説明</div>
-  <div><%= @place.explanation %></div>
-</div>
-<div>
-  <div>地域名</div>
-  <div>
-    <%= link_to admins_region_path do %>
-    <%= @place.region.name %>
-    <% end %>
-    <!--地域詳細ページへのリンク-->
+<div class="container mt-2">
+    <h2>場所詳細</h2>
+  <div class="row">
+    <div class="col-4">
+      <%= attachment_image_tag(@place, :image, :fill, 300, 200, format: 'jpeg', fallback: "no_image.jpg") %>
+    </div>
+    <div class="col-8">
+      <table class="mx-auto">
+        <tr>
+          <td width="150">場所名</td>
+          <td><%= @place.name %></td>
+        </tr>
+        <tr>
+          <td>地面</td>
+          <td><%= @place.ground %></td>
+        </tr>
+        <tr>
+          <td>場所説明</td>
+          <td><%= @place.explanation %></td>
+        </tr>
+        <tr>
+          <td>地域名</td>
+          <td>
+             <%= link_to admins_region_path do %>
+             <%= @place.region.name %>
+             <% end %>
+             <!--地域詳細ページへのリンク-->
+          </td>
+        </tr>
+      </table>
+    </div>
+      <div class="col-12 text-center">
+        <%=link_to "編集する", edit_admins_place_path(@place), class: 'btn btn-success px-4' %>
+      </div>
   </div>
 </div>
-<%=link_to "編集する", edit_admins_place_path(@place), class: 'btn btn-success px-4' %>

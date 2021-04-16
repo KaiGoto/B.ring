@@ -1,10 +1,9 @@
  <div class="container mt-2">
   <h2>My Page</h2>
-  <div class="row col-12">
-    <span class="col-4"><%= attachment_image_tag(@user_id, :image, :fill, 300, 300, format: 'jpeg', fallback: "no_image.jpg") %></span>
-    <div class="col-8">
-      <h4 class="offset-2">登録情報</h4><br>
-      <table>
+  <div class="row">
+    <span class="col-2"><%= attachment_image_tag(@user_id, :image, :fill, 300, 300, format: 'jpeg', fallback: "no_image.jpg") %></span>
+    <div class="col-10">
+      <table class="mx-auto">
         <thead>
           <tr>
             <th class="fas fa-signature">氏名</th>
@@ -46,6 +45,6 @@
     </div>
   </div><br>
   <div class="text-center">
-    <%= link_to "Edit", edit_user_path(@user), class:"btn btn-success px-4" %>
+    <%= link_to "編集する", edit_user_path(@user), class:"btn btn-success px-4" %>
   </div>
 </div>

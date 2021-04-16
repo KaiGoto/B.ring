@@ -33,6 +33,13 @@ before_action :authenticate_admin!
     end
   end
 
+  def destroy
+    @region = Region.find(params[:id])
+    @region.destroy
+    flash[:notice] ='Region was successfully created.'
+    redirect_to admins_regions_path
+  end
+
   private
   def region_params
     params.require(:region).permit(:name)
