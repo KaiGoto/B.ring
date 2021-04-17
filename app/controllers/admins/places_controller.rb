@@ -51,7 +51,7 @@ before_action :authenticate_admin!
 
   private
   def place_params
-    params.require(:place).permit(:image_id, :name, :explanation, :region_id, :ground)
+    params.require(:place).permit(:image, :name, :explanation, :region_id, :ground, :address)
   end
 
 end

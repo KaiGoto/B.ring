@@ -24,6 +24,10 @@
         <td>地面</td>
         <td><%= f.select :ground, [["コンクリート", "コンクリート"], ["砂", "砂"], ["砂利", "砂利"  ] ,["芝生", "芝生"]] %></td>
       </tr>
+      <tr>
+        <td>住所</td>
+        <td colspan="3"><%= f.text_field :address,placeholder:"住所を入力して下さい" %></td>
+      </tr>
     </table>
   </div>
     <div class="text-center">
