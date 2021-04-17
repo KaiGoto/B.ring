@@ -3,18 +3,18 @@
   <div class="commentitem">
     <!--ユーザー画像-->
     <tr>
-      <td><%= attachment_image_tag(@user, :image_id, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></td>
+      <td width="150"><%= attachment_image_tag(@user, :image_id, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></td>
       <!--ユーザー表示名-->
-      <td><%= place_comment.user.nickname %>さん</td>
+      <td width="150"><%= place_comment.user.nickname %>さん</td>
       <!--コメントをした時間-->
-      <td><%= place_comment.created_at.strftime('%Y/%m/%d') %></td>
+      <td width="150"><%= place_comment.created_at.strftime('%Y/%m/%d') %></td>
       <!--コメント-->
-      <td><%= place_comment.comment %></td>
-      <td>
+      <td width="250"><%= place_comment.comment %></td>
+      <td width="150">
         <% if place_comment.user == current_user %>
-        <div class="comment-delete">
+        <a class="comment-delete">
           <%= link_to "削除", place_place_comment_path(place_comment.place,place_comment), method: :delete, remote: true, class:"btn btn-danger px-4" %>
-        </div>
+        </a>
         <% end %>
       </td>
     </tr>

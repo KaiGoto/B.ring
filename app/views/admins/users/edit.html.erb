@@ -2,6 +2,7 @@
   <h4><span><%= @user.nickname %>さんの情報編集ページ</span></h4>
 
   <%= form_with model: @user, url: admins_user_path, local: true do |f| %>
+  <%= render 'layouts/errors_massage', obj: @user %>
   <div class="row"></div>
     <table class="mx-auto">
       <thead>
@@ -56,7 +57,7 @@
       </thead>
     </table>
     <div class="text-center">
-      <%= f.submit "変更を保存", class: "btn btn-success" %>
+      <%= f.submit "変更を保存", class: "btn btn-success px-4" %>
     </div>
   </div>
   <% end %>

@@ -2,6 +2,7 @@
   <h2>登録情報編集</h2><br>
   <%= form_with model: @user, local:true do |f| %>
   <div class="row">
+    <%= render 'layouts/errors_massage', obj: @user %>
       <table class="mx-auto">
         <thead>
           <tr>

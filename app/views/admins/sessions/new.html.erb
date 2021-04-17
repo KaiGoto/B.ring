@@ -1,5 +1,5 @@
 <div class="container mt-2">
-  <h2>Log in</h2>
+  <h2>Admin log in</h2>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= render 'layouts/errors_massage', obj: @admin %>
   <div class="row col-12 text-center">
@@ -26,7 +26,7 @@
     </table><br>
   </div><br>
     <div class="text-center">
-      <%= f.submit "Log in", class: "btn btn-primary px-4"%>
+      <%= f.submit "ログイン", class: "btn btn-primary px-4"%>
     </div><br>
     <% end %>
 
