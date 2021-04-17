@@ -55,6 +55,9 @@ ActiveRecord::Schema.define(version: 2021_04_13_044911) do
     t.string "image_id"
     t.text "explanation"
     t.string "ground"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

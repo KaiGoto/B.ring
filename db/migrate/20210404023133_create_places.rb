@@ -6,6 +6,9 @@ class CreatePlaces < ActiveRecord::Migration[5.2]
       t.string :image_id
       t.text :explanation
       t.string :ground
+      t.string :address
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end
