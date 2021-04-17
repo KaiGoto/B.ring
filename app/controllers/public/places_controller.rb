@@ -1,5 +1,5 @@
 class Public::PlacesController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   def index
     @place = Place.page(params[:page]).per(5) #kaminari
     @place_all = Place.all
@@ -7,6 +7,9 @@ class Public::PlacesController < ApplicationController
     if params[:name].present?
     @region = @region.get_by_name params[:name]
     end
+    # ランキング機能
+   @places = Place.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+   @place_kaminari = Kaminari.paginate_array(@places).page(params[:page]).per(5)
   end
 
   def show

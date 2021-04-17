@@ -3,6 +3,7 @@ class Place < ApplicationRecord
   belongs_to :region
   attachment :image
   has_many :favorites, dependent: :destroy
+  has_many :favorited_users, through: :favorites, source: :user
   has_many :place_comments, dependent: :destroy
 
   def favorited_by?(user)

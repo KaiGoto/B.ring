@@ -1,20 +1,26 @@
-<h2><%= @regions.name %>地域</h2>
-<p>全<%= @place_all.count %>件</p>
-<table>
-  <% @regions.places.each do |region| %>
-  <tr>
-    <td>場所名</td>
-    <td>地面</td>
-  </tr>
-  <body>
-    <tr>
-      <td>
-        <%= link_to place_path(@regions) do %>
-        <%= region.name %>
-        <% end %>
-      </td>
-      <td><%= region.ground %></td>
-    </tr>
-    <% end %>
-  </body>
-</table>
+<div class="container mt-2">
+  <h2><%= @regions.name %>地域</h2>
+  <p>全<%= @place_all.count %>件</p>
+  <div class="row col-12">
+    <table class="text-align-center mx-auto">
+      <thead>
+        <tr>
+          <td>場所名</td>
+          <td>地面</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @regions.places.each do |region| %>
+        <tr>
+          <td>
+            <%= link_to place_path(@regions) do %>
+            <%= region.name %>
+            <% end %>
+          </td>
+          <td><%= region.ground %></td>
+        </tr>
+      </body>
+      <% end %>
+    </table>
+  </div>
+</div>

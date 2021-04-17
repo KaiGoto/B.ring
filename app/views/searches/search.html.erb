@@ -1,51 +1,55 @@
-<h2>
-  <%= @model %> 検索結果
-  "<%= @content %>"
-</h2>
-<table>
-  <thead>
-    <tr>
-      <% if @model == "地域名" %>
-      <th></th>
-      <th>地域名</th>
-      <% else %>
-      <th></th>
-      <th>場所名</th>
-      <th>場所説明</th>
-        <% end %>
-      </tr>
-  </thead>
-  <tbody>
-    <% if @model == "地域名" %>
-    <% @datas.each do |data| %>
-      <tr>
-        <th></th>
-        <th>
-          <%= data.name %>
-        </th>
-        <th>
-          場所<%= data.places.count %>件
-        </th>
-        <th>
-          <%= link_to "詳細",region_path(data.id) %>
-        </th>
-        <% end %>
-        <% end %>
-      </tr>
-        <% if @model == "場所名" %>
+<div class="container mt-2">
+  <h2>
+    <%= @model %> 検索結果
+    "<%= @content %>"
+  </h2>
+  <div class="row col-12">
+    <table class="mx-auto">
+      <thead>
+        <tr>
+          <% if @model == "地域名" %>
+          <th></th>
+          <th>地域名</th>
+          <% else %>
+          <th></th>
+          <th>場所名</th>
+          <th>場所説明</th>
+            <% end %>
+          </tr>
+      </thead>
+      <tbody>
+        <% if @model == "地域名" %>
         <% @datas.each do |data| %>
-      <tr>
-        <th>
-          <%= attachment_image_tag @place, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-        </th>
-        <th>
-          <%= data.name %>
-        </th>
-        <th>
-          <%= data.explanation %>
-        </th>
-      </tr>
-      <% end %>
-      <% end %>
-  </tbody>
-</table>
+          <tr>
+            <th></th>
+            <th>
+              <%= data.name %>
+            </th>
+            <th>
+              場所<%= data.places.count %>件
+            </th>
+            <th>
+              <%= link_to "詳細",region_path(data.id) %>
+            </th>
+            <% end %>
+            <% end %>
+          </tr>
+            <% if @model == "場所名" %>
+            <% @datas.each do |data| %>
+          <tr>
+            <th>
+              <%= attachment_image_tag @place, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+            </th>
+            <th>
+              <%= data.name %>
+            </th>
+            <th>
+              <%= data.explanation %>
+            </th>
+          </tr>
+          <% end %>
+          <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

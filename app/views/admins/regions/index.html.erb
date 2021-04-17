@@ -1,30 +1,34 @@
-<h2>地域一覧・追加</h2>
-<p>全<%= @region_all.count %>地域</p>
-  <%= render 'layouts/errors_massage', obj: @regions %>
-  <%= form_with model: @regions, url: admins_regions_path, local: true do |f| %>
-  <div>
-    <%= f.label :"地域名" %>
-    <%= f.text_field :name, placeholder: "地域名" %>
-    <%= f.submit "新規登録",class: 'btn btn-success px-4' %>
-  </div>
-  <% end %>
-<table>
-  <thead>
-    <tr>
-      <th>地域名</th>
-      <th></th>
-    </tr>
-  </thead>
-  <body>
-    <% @region.each do |region| %>
-    <tr>
-      <td>
-        <%= link_to admins_region_path(region.id) do %>
-        <%= region.name %>
+<div class="container mt-2">
+    <h2>地域一覧・追加</h2>
+    <p>全<%= @region_all.count %>地域</p>
+      <%= render 'layouts/errors_massage', obj: @regions %>
+      <%= form_with model: @regions, url: admins_regions_path, local: true do |f| %>
+  <div class="row">
+    <div class="mx-auto">
+        <%= f.label :"地域名" %>
+        <%= f.text_field :name, placeholder: "地域名" %>
+        <%= f.submit "新規登録",class: 'btn btn-primary px-4' %>
         <% end %>
-      </td>
-      <td><%= link_to "編集する", edit_admins_region_path(region) %></td>
-    </tr>
-    <% end %>
-  </body>
-</table>
+      <table class="mt-2 mx-auto">
+        <thead>
+          <tr>
+            <th style="font-size: 150%;">地域名</th>
+            <th></th>
+          </tr>
+        </thead>
+        <body>
+          <% @region.each do |region| %>
+          <tr>
+            <td>
+              <%= link_to admins_region_path(region.id) do %>
+              <%= region.name %>
+              <% end %>
+            </td>
+            <td><%= link_to "編集する", edit_admins_region_path(region),class: 'btn btn-success px-4' %></td>
+          </tr>
+          <% end %>
+        </body>
+      </table>
+    </div>
+  </div>
+</div>
