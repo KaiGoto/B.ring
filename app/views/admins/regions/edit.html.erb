@@ -6,8 +6,8 @@
       <div class="mx-auto">
         <%= f.label :"地域名" %>
         <%= f.text_field :name, placeholder: "地域名" %>
-        <br><%= f.submit "変更を保存",class: 'btn btn-success px-4' %>
-        <%= link_to '削除する',admins_region_path(@region), method: :delete, "data-confirm" => "Are you sure?", class:"btn btn-danger px-4" %>
+        <br><%= f.submit "変更を保存",class: 'btn btn-warning px-4' %>
+        <%= link_to '削除する',admins_region_path(@region), method: :delete, "data-confirm" => "本当に削除しますか?", class:"btn btn-danger px-4" %>
       </div>
       <% end %>
     </div>

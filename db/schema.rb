@@ -70,9 +70,6 @@ ActiveRecord::Schema.define(version: 2021_04_13_044911) do
 
   create_table "searches", force: :cascade do |t|
     t.string "name"
-    t.string "ground"
-    t.text "comment"
-    t.text "explanation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
