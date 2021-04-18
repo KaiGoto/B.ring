@@ -11,6 +11,10 @@
           <td><%= @place.name %></td>
         </tr>
         <tr>
+          <td>住所</td>
+          <td><%= @place.address %></td>
+        </tr>
+        <tr>
           <td>地面</td>
           <td><%= @place.ground %></td>
         </tr>
@@ -35,7 +39,7 @@
   </div><br>
   <!--地図表示-->
   <div class="row">
-  <div id="map" class="col-12 text-center" style='width: 50%; height: 250px;'></div>
+  <div id="map" class="col-12 text-center" style='width: 50%; height: 300px;'></div>
     <script type="text/javascript">
         handler = Gmaps.build('Google');
         handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){

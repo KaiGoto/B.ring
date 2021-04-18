@@ -14,7 +14,7 @@
       </thead>
       <body>
         <tr>
-          <td width="150"><%= attachment_image_tag(user, :image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></td>
+          <td width="150"><%= attachment_image_tag(user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg") %></td>
           <td><%= user.id %></td>
           <td>
             <%= link_to admins_user_path(user) do %>

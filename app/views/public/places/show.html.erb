@@ -17,6 +17,9 @@
             <td><%= @place.name %></td>
           </tr>
           <tr>
+            <td>住所</td>
+            <td><%= @place.address %></td>
+          </tr>
             <td>地面</td>
             <td><%= @place.ground %></td>
           </tr>
@@ -51,31 +54,34 @@
           </tr>
         </thead>
       </table>
-          <div class="new-comment text-center">
-            <%= form_with(model:[@place, @place_comment], remote: true) do |f| %>
-            <%= f.text_area :comment, rows:'5', cols:"40",placeholder: "コメントをここに" %>
-            <br><span class="text-center"><%= f.submit "送信する", class:"btn btn-primary px-4" %></span>
-            <% end %>
-          </div>
+      <% if user_signed_in? %>
+      <div class="new-comment text-center">
+        <%= form_with(model:[@place, @place_comment], remote: true) do |f| %>
+        <%= f.text_area :comment, rows:'5', cols:"40",placeholder: "コメントをここに" %>
+        <br><span class="text-center"><%= f.submit "送信する", class:"btn btn-primary px-4" %></span>
+        <% end %>
+      </div>
+      <% end %>
     </div>
   </div><br>
   <!--地図表示-->
   <div class="row">
-  <div id="map" class="col-12 text-center" style='width: 50%; height: 250px;'></div>
-    <script type="text/javascript">
-        handler = Gmaps.build('Google');
-        handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
-          markers = handler.addMarkers([
-            {
-              "lat": <%= @place.latitude %>,
-              "lng": <%= @place.longitude %>,
-              "infowindow": '<p><%= @place.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@place.latitude},#{@place.longitude}&iwloc=J",target: "_blank" ,class:"gmap-link"%></p>',
-
-            }
-          ]);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-          handler.getMap().setZoom(17);
-        });
-    </script>
+    <div id="map" class="col-12 text-center" style='width: 50%; height: 250px;'></div>
+      <script type="text/javascript">
+          handler = Gmaps.build('Google');
+          handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+            markers = handler.addMarkers([
+              {
+                "lat": <%= @place.latitude %>,
+                "lng": <%= @place.longitude %>,
+                "infowindow": '<p><%= @place.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@place.latitude},#{@place.longitude}&iwloc=J",target: "_blank" ,class:"gmap-link"%></p>',
+  
+              }
+            ]);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            handler.getMap().setZoom(17);
+          });
+      </script>
+    </div>
   </div>

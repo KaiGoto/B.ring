@@ -5,10 +5,11 @@
     <table class="mx-auto">
       <thead>
         <tr>
-          <td>場所画像</td>
-          <td>場所名</td>
-          <td>地域名</td>
-          <td>コメント</td>
+          <td width="150">場所画像</td>
+          <td width="150">場所名</td>
+          <td width="150">住所</td>
+          <td width="150">地域名</td>
+          <td width="150">コメント</td>
         </tr>
       </thead>
       <tbody>
@@ -16,7 +17,7 @@
         <tr>
           <td>
             <%= link_to place_path(place.id) do %>
-            <%= attachment_image_tag(place, :image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %>
+            <%= attachment_image_tag(place, :image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg") %>
             <% end %>
           </td>
           <td>
@@ -24,6 +25,7 @@
             <%= place.name %>
             <% end %>
           </td>
+          <td><%= place.address %></td>
           <td><%= place.region.name %></td>
           <td>
             <%= link_to "#{place.place_comments.count} コメント", place_path(place.id) %></div>

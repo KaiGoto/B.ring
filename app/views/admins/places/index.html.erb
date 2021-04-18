@@ -9,6 +9,7 @@
           <td width="150">場所画像</td>
           <td>場所ID</td>
           <td>場所名</td>
+          <td>住所</td>
           <td>地域名</td>
           <td>地面</td>
         </tr>
@@ -16,13 +17,14 @@
       <body>
         <% @place.each do |place|%>
           <tr>
-            <td><%= attachment_image_tag(place, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg") %></td>
+            <td><%= attachment_image_tag(place, :image, :fill, 200, 150, format: 'jpeg', fallback: "no_image.jpg") %></td>
             <td><%= place.id %></td>
             <td>
               <%= link_to admins_place_path(place.id) do %>
               <%= place.name %>
               <% end %>
             </td>
+            <td><%= place.address %></td>
             <td><%= place.region.name %></td>
             <td><%= place.ground %></td>
           </tr>

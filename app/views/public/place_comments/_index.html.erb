@@ -3,7 +3,7 @@
   <div class="commentitem">
     <!--ユーザー画像-->
     <tr>
-      <td width="150"><%= attachment_image_tag(@user, :image_id, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></td>
+      <td width="150"><%= attachment_image_tag(@user, :image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></td>
       <!--ユーザー表示名-->
       <td width="150"><%= place_comment.user.nickname %>さん</td>
       <!--コメントをした時間-->
