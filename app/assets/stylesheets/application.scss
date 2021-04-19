@@ -17,17 +17,56 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Orelega One', cursive;
+font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0px;
+  background-color :#CCCCCC;
+}
+
+.header {
+  margin: 0;
+  padding: 0px;
+  width: 100%;
+  background-color :#FFFFFF;
+}
 
 .li {
   list-style: none;
 }
+
+
+.max {
+  height: 100vh;
+}
+
 
 table {
   border-collapse: separate;
   border-spacing: 10px;
 }
 
-// 文字を白色に
+
 .btn-warning {
+  // 文字を白色に
   color: #ffffff;
 }
+
+
+footer{
+  bottom: 0;
+  background-color :#444444;
+  text-align: center;
+  line-height: 120px;
+  color: #fff;
+}
+// background-image: url( img13.jpg );
+// background-size: cover;
+// background-color :#FFFFFF;
