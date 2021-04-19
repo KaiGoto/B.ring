@@ -5,17 +5,19 @@ class Public::PlaceCommentsController < ApplicationController
     @comment = current_user.place_comments.build(place_comment_params)
     @comment.place_id = @place.id
     @comment.save
-    render :index
+    @place_comment = PlaceComment.new
+    render :create
   end
 
   def destroy
     @place = Place.find(params[:place_id])
     @place_comment = PlaceComment.find(params[:id]).destroy
     @place_comment.destroy
+    # redirect_to request.referer
   end
 
   private
   def place_comment_params
-    params.require(:place_comment).permit(:comment, :user_id, :place_id)
+    params.require(:place_comment).permit(:comment)
   end
 end

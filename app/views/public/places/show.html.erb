@@ -34,39 +34,15 @@
               <%= @place.region.name %>
               <% end %>
             </td>
-          </tr>
-            <td>コメント件数</td>
-            <td><%= @place.place_comments.count %></td>
-          </tr>
         </thead>
       </table>
-      <table>
-        <thead>
-          <tr>
-            <!--コメントページ-->
-            <div class="comments">
-              <div id="place_comment">
-                <td width="150">
-                  <%= render 'public/place_comments/index', place: @place %>
-                </td>
-              </div>
-            </div>
-          </tr>
-        </thead>
-      </table>
-      <% if user_signed_in? %>
-      <div class="new-comment text-center">
-        <%= form_with(model:[@place, @place_comment], remote: true) do |f| %>
-        <%= f.text_area :comment, rows:'5', cols:"40",placeholder: "コメントをここに" %>
-        <br><span class="text-center"><%= f.submit "送信する", class:"btn btn-primary px-4" %></span>
-        <% end %>
-      </div>
-      <% end %>
+      <!--コメントページ-->
+      <%= render 'public/place_comments/place_comment', place: @place, place_comment: @place_comment %>
     </div>
   </div><br>
   <!--地図表示-->
   <div class="row">
-    <div id="map" class="col-12 text-center" style='width: 50%; height: 250px;'></div>
+    <div id="map" class="col-12 text-center" style='width: 50%; height: 300px;'></div>
       <script type="text/javascript">
           handler = Gmaps.build('Google');
           handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){

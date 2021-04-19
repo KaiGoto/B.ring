@@ -1,8 +1,8 @@
 class Public::FavoritesController < ApplicationController
   before_action :set_place
   def create
-    place = Place.find(params[:place_id])
-    favorite = current_user.favorites.new(place_id: place.id)
+    @place = Place.find(params[:place_id])
+    favorite = current_user.favorites.new(place_id: @place.id)
     favorite.save
   end
 

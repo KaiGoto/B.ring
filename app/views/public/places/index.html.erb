@@ -9,7 +9,7 @@
           <td width="150">場所名</td>
           <td width="150">住所</td>
           <td width="150">地域名</td>
-          <td width="150">コメント</td>
+          <td width="150">コメント件数</td>
         </tr>
       </thead>
       <tbody>
@@ -27,11 +27,9 @@
           </td>
           <td><%= place.address %></td>
           <td><%= place.region.name %></td>
-          <td>
-            <%= link_to "#{place.place_comments.count} コメント", place_path(place.id) %></div>
-            <% end %>
-          </td>
+          <td><%= place.place_comments.count %></td>
         </tr>
+        <% end %>
       </tbody>
     </table>
     <div class="text-center">
