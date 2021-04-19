@@ -17,6 +17,8 @@ before_action :authenticate_admin!
 
   def show
     @place = Place.find(params[:id])
+    @place_comment = PlaceComment.new
+    @place_comments = @place.place_comments.order(created_at: :desc)  #新着順
   end
 
   def edit

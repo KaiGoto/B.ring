@@ -18,6 +18,9 @@ before_action :authenticate_admin!
   def show
     @region = Region.find(params[:id])
     @place = Place.all
+    if params[:address].present?
+      @region = @region.get_by_address params[:address]
+    end
   end
 
   def edit

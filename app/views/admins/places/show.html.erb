@@ -32,6 +32,33 @@
           </td>
         </tr>
       </table>
+      <div class="commentitem">
+        コメント<%= @place.place_comments.count %>件
+        <table>
+          <thead>
+            <tr>
+              <td>ユーザー画像</td>
+              <td>名前</td>
+              <td>時刻</td>
+              <td>コメント</td>
+              <td colspan="3"></td>
+            </tr>
+          </thead>
+          <% @place.place_comments.each do |place_comment| %>
+          <tr>
+            <td width="150"><%= attachment_image_tag(place_comment.user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg") %></td>
+            <td width="150"><%= place_comment.user.nickname %>さん</td>
+            <td width="150"><%= place_comment.created_at.strftime('%Y/%m/%d') %></td>
+            <td width="250"><%= place_comment.comment %></td>
+            <td width="150">
+              <a class="comment-delete">
+                <%= link_to "削除", place_place_comment_path(place_comment.place,place_comment), method: :delete, "data-confirm" => "本当に削除?", class:"btn btn-danger px-4" %>
+              </a>
+            </td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
     </div>
       <div class="col-12 text-center">
         <%=link_to "編集する", edit_admins_place_path(@place), class: 'btn btn-success px-4' %>

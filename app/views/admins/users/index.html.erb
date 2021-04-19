@@ -2,7 +2,6 @@
   <h2>会員一覧</h2>
   <div class="row">
     <table class="mx-auto">
-      <% @user.each do |user| %>
       <thead>
         <tr>
           <td width="150">プロフィール画像</td>
@@ -13,6 +12,7 @@
           <td width="150">ステータス</td>
       </thead>
       <body>
+        <% @user.each do |user| %>
         <tr>
           <td width="150"><%= attachment_image_tag(user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg") %></td>
           <td><%= user.id %></td>

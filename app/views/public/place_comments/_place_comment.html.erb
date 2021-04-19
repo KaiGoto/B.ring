@@ -4,15 +4,20 @@
       <div class="commentitem">
         コメント<%= place.place_comments.count %>件
         <table>
+          <thead>
+            <tr>
+              <td>ユーザー画像</td>
+              <td>名前</td>
+              <td>時刻</td>
+              <td>コメント</td>
+              <td colspan="3"></td>
+            </tr>
+          </thead>
           <% place.place_comments.each do |place_comment| %>
           <tr>
-            <!--ユーザー画像-->
             <td width="150"><%= attachment_image_tag(place_comment.user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg") %></td>
-            <!--ユーザー表示名-->
             <td width="150"><%= place_comment.user.nickname %>さん</td>
-            <!--コメントをした時間-->
             <td width="150"><%= place_comment.created_at.strftime('%Y/%m/%d') %></td>
-            <!--コメント-->
             <td width="250"><%= place_comment.comment %></td>
             <td width="150">
               <% if place_comment.user == current_user %>
