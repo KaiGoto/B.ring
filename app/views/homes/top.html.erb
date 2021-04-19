@@ -1,18 +1,18 @@
 <div class="container mt-3">
   <div class="row">
-    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
-      <h4 class="text-center">
+    <div class="mx-auto">
+      <h4 class="text-center", style="font-size:30px;">
         <% if user_signed_in? %>
           <%= current_user.nickname %>さん、
         <% end %>
         Welcome to <strong>B.ring!!</strong></br>
       </h4><br>
-      <div class="top">
-        このサイトは、大阪府内にある屋外バスケットボールコートの共有サイトになります。</br>
-        会員でない方も閲覧することはできますが、コメントする際には会員登録が必要となります。</br>
+      <div style="font-size:25px;">
+        このサイトは、大阪府内にある屋外バスケットボールコートの共有サイトになります。<br>
+        会員でない方も閲覧することはできますが、コメントする際には会員登録が必要となります。
       </div><br>
-      <div class="top_img mt-2 ml-3">
-        <%= image_tag 'img12.jpg', size:'500x300' %>
+      <div class="text-center">
+        <%= image_tag 'img12.jpg', size:'600x400' %>
       </div><br>
       <div class="text-center">管理者はこちらから<%= link_to "ログイン", new_admin_session_path, class:"btn btn-info px-4" %></div>
     </div>
