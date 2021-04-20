@@ -1,43 +1,45 @@
- <div class="container mt-2">
-  <h2>My Page</h2>
-  <div class="row">
-    <span class="col-4"><%= attachment_image_tag(@user, :image, :fill, 300, 300, format: 'jpeg', fallback: "no_image.jpg") %></span>
-    <div class="col-8">
-      <table class="table table-hover table-inverse">
-        <thead>
-          <tr>
-            <td class="fas fa-signature">氏名</td>
-            <td><%= @user.last_name %><%= @user.first_name %></td>
-          </tr>
-          <tr>
-            <td class="fas fa-file-signature">フリガナ</td>
-            <td><%= @user.k_last_name %><%= @user.k_first_name %></td>
-          </tr>
-          <tr>
-            <td class="fas fa-user">表示名</td>
-            <td><%= @user.nickname %></td>
-          </tr>
-          <tr>
-            <td class="fas fa-mail-bulk">郵便番号</td>
-            <td>〒<%= @user.postal_code %></td>
-          </tr>
-           <tr>
-            <td class="fas fa-address-card">住所</td>
-            <td><%= @user.address %></td>
-          </tr>
-           <tr>
-            <td class="fas fa-mobile-alt">電話番号</td>
-            <td><%= @user.telephone_number %></td>
-          </tr>
-           <tr>
-            <td class="fas fa-envelope">メールアドレス</td>
-            <td><%= @user.email %></td>
-          </tr>
-        </thead>
-      </table>
+  <!--<div class="user">  -->
+   <div class="container">
+    <h2>My Page</h2>
+    <div class="row">
+      <span class="col-4"><%= attachment_image_tag(@user, :image, :fill, 300, 300, format: 'jpeg', fallback: "no_image.jpg") %></span>
+      <div class="col-8">
+        <table class="table table-hover table-inverse">
+          <thead>
+            <tr>
+              <td class="fas fa-signature">氏名</td>
+              <td><%= @user.last_name %><%= @user.first_name %></td>
+            </tr>
+            <tr>
+              <td class="fas fa-file-signature">フリガナ</td>
+              <td><%= @user.k_last_name %><%= @user.k_first_name %></td>
+            </tr>
+            <tr>
+              <td class="fas fa-user">表示名</td>
+              <td><%= @user.nickname %></td>
+            </tr>
+            <tr>
+              <td class="fas fa-mail-bulk">郵便番号</td>
+              <td>〒<%= @user.postal_code %></td>
+            </tr>
+             <tr>
+              <td class="fas fa-address-card">住所</td>
+              <td><%= @user.address %></td>
+            </tr>
+             <tr>
+              <td class="fas fa-mobile-alt">電話番号</td>
+              <td><%= @user.telephone_number %></td>
+            </tr>
+             <tr>
+              <td class="fas fa-envelope">メールアドレス</td>
+              <td><%= @user.email %></td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div><br>
+    <div class="text-center">
+      <%= link_to "編集する", edit_user_path(@user), class:"btn btn-success px-4" %>
     </div>
-  </div><br>
-  <div class="text-center">
-    <%= link_to "編集する", edit_user_path(@user), class:"btn btn-success px-4" %>
   </div>
-</div>
+<!--</div>-->
