@@ -4,8 +4,7 @@
     <h5>会員の方はこのページからログイン</h5>
     <p id="alert-notice"><%= notice %></p>
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-    <div class="row">
-      <table class="mx-auto">
+      <table class="mx-auto", style="font-size:20px;">
         <thead>
           <tr>
             <td><%= f.label "メールアドレス" %></td>
@@ -18,8 +17,7 @@
             <td><%= f.password_field :password, autocomplete: "current-password", class: "hoge", size: 40 %></td><br>
           </tr>
         </thead>
-      </table>
-    </div><br>
+      </table><br>
     <div class="text-center"><%= f.submit "ログイン", class: 'btn btn-primary px-4' %></div><br>
       <% end %>
       <div>

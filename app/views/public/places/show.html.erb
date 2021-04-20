@@ -8,27 +8,27 @@
   </div>
   <% end %>
   <div class="row">
-    <span class="col-4"><%= attachment_image_tag(@place, :image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></span>
-    <div class="col-8">
-      <table>
-        <thead>
+    <span class="col-3"><%= attachment_image_tag(@place, :image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></span>
+    <div class="col-9">
+      <table class="text-center mx-auto, table table-bordered", style="font-size:18px;">
+        <thead class="thead-light">
           <tr>
-            <td width="150">場所名</td>
+            <th width="150">場所名</th>
             <td><%= @place.name %></td>
           </tr>
           <tr>
-            <td>住所</td>
+            <th>住所</th>
             <td><%= @place.address %></td>
           </tr>
-            <td>地面</td>
+            <th>地面</th>
             <td><%= @place.ground %></td>
           </tr>
           <tr>
-            <td>場所説明</td>
+            <th>場所説明</th>
             <td><%= @place.explanation %></td>
           </tr>
           <tr>
-            <td>地域名</td>
+            <th>地域名</th>
             <td>
               <%= link_to region_path do %>
               <%= @place.region.name %>

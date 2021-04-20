@@ -7,7 +7,7 @@ before_action :authenticate_admin!
   end
 
   def index
-    @place = Place.page(params[:page]).per(10)
+    @place = Place.page(params[:page]).per(5)
     @place_all = Place.all
     @region = Region.all
     if params[:name].present?
@@ -29,7 +29,7 @@ before_action :authenticate_admin!
   def create
     @place = Place.new(place_params)
     if @place.save
-      redirect_to admins_place_path(@place), notice: '場所を作成しました'
+      redirect_to admins_place_path(@place)
     else
       render "new"
     end
@@ -38,7 +38,7 @@ before_action :authenticate_admin!
   def update
     @place = Place.find(params[:id])
     if @place.update(place_params)
-      redirect_to admins_place_path, notice: '更新しました'
+      redirect_to admins_place_path
     else
       render "edit"
     end

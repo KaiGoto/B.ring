@@ -1,47 +1,49 @@
-<div class="container mt-2">
+<div class="container">
     <h2>場所詳細</h2>
   <div class="row">
     <div class="col-4">
       <%= attachment_image_tag(@place, :image, :fill, 300, 200, format: 'jpeg', fallback: "no_image.jpg") %>
     </div>
     <div class="col-8">
-      <table class="mx-auto">
-        <tr>
-          <td width="150">場所名</td>
-          <td><%= @place.name %></td>
-        </tr>
-        <tr>
-          <td>住所</td>
-          <td><%= @place.address %></td>
-        </tr>
-        <tr>
-          <td>地面</td>
-          <td><%= @place.ground %></td>
-        </tr>
-        <tr>
-          <td>場所説明</td>
-          <td><%= @place.explanation %></td>
-        </tr>
-        <tr>
-          <td>地域名</td>
-          <td>
-             <%= link_to admins_region_path do %>
-             <%= @place.region.name %>
-             <% end %>
-             <!--地域詳細ページへのリンク-->
-          </td>
-        </tr>
+      <table class="text-center mx-auto, table table-bordered", style="font-size:18px;">
+        <thead class="thead-light">
+          <tr>
+            <th width="150">場所名</th>
+            <td><%= @place.name %></td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td><%= @place.address %></td>
+          </tr>
+          <tr>
+            <th>地面</th>
+            <td><%= @place.ground %></td>
+          </tr>
+          <tr>
+            <th>場所説明</th>
+            <td><%= @place.explanation %></td>
+          </tr>
+          <tr>
+            <th>地域名</th>
+            <td>
+               <%= link_to admins_region_path do %>
+               <%= @place.region.name %>
+               <% end %>
+               <!--地域詳細ページへのリンク-->
+            </td>
+          </tr>
+        </thead>
       </table>
       <div class="commentitem">
         コメント<%= @place.place_comments.count %>件
-        <table>
-          <thead>
+        <table class="text-center mx-auto, table table-bordered">
+          <thead class="thead-light">
             <tr>
-              <td>ユーザー画像</td>
-              <td>名前</td>
-              <td>時刻</td>
-              <td>コメント</td>
-              <td colspan="3"></td>
+              <th>ユーザー画像</th>
+              <th>名前</th>
+              <th>時刻</th>
+              <th>コメント</th>
+              <th></th>
             </tr>
           </thead>
           <% @place.place_comments.each do |place_comment| %>

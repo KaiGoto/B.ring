@@ -7,10 +7,11 @@ before_action :authenticate_admin!
   end
 
   def create
-    @region = Region.new(region_params)
-    if @region.save
-      redirect_to admins_region_path(@region), notice: '地域を作成しました'
+    @regions = Region.new(region_params)
+    if @regions.save
+      redirect_to admins_region_path(@region)
     else
+      @region = Region.all
       render "index"
     end
   end
@@ -30,7 +31,7 @@ before_action :authenticate_admin!
   def update
     @region = Region.find(params[:id])
     if @region.update(region_params)
-      redirect_to admins_regions_path, notice: '更新しました'
+      redirect_to admins_regions_path
     else
       render "edit"
     end

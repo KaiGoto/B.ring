@@ -4,7 +4,7 @@
       <%= render 'layouts/errors_massage', obj: @region %>
       <%= form_with model: @region, url: admins_region_path, local:true do |f| %>
       <div class="row">
-        <div class="mx-auto">
+        <div class="mx-auto", style="font-size:20px;">
           <%= f.label :"地域名" %>
           <%= f.text_field :name, placeholder: "地域名" %>
           <br><%= f.submit "変更を保存",class: 'btn btn-warning px-4' %>

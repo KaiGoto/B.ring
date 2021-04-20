@@ -3,14 +3,14 @@
     <div class="commentlist">
       <div class="commentitem">
         コメント<%= place.place_comments.count %>件
-        <table>
-          <thead>
+        <table class="table table-bordered">
+          <thead class="thead-light">
             <tr>
-              <td>ユーザー画像</td>
-              <td>名前</td>
-              <td>時刻</td>
-              <td>コメント</td>
-              <td colspan="3"></td>
+              <th>ユーザー画像</th>
+              <th>名前</th>
+              <th>時刻</th>
+              <th>コメント</th>
+              <th></th>
             </tr>
           </thead>
           <% place.place_comments.each do |place_comment| %>
@@ -22,7 +22,7 @@
             <td width="150">
               <% if place_comment.user == current_user %>
               <a class="comment-delete">
-                <%= link_to "削除", place_place_comment_path(place_comment.place,place_comment), method: :delete, remote: true, class:"btn btn-danger px-4" %>
+                <%= link_to "削除", place_place_comment_path(place_comment.place,place_comment), method: :delete, remote: true, class:"btn btn-danger" %>
               </a>
               <% end %>
             </td>

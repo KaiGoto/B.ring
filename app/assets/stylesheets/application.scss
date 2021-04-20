@@ -42,18 +42,10 @@ body {
   list-style: none;
 }
 
-
 .max {
   height: 100vh;
 }
 
-// --背景画像--
-.region {
-  height: 90vh;
-  width: 100%;
-  background-image: url(img13.jpg);
-  background-size: cover;
-}
 
 .in {
   height: 90vh;
@@ -62,18 +54,9 @@ body {
   background-size: cover;
 }
 
-// .user {
-//   height: 90vh;
-//   width: 100%;
-//   background-image: url(img8.jpg);
-//   background-size: cover;
-// }
-// --/背景画像--
-
-
 table {
   border-collapse: separate;
-  border-spacing: 10px;
+  // text-align: center;
 }
 
 
@@ -93,3 +76,4 @@ footer{
 // background-image: url( img13.jpg );
 // background-size: cover;
 // background-color :#FFFFFF;
+// background-color: #CCCCCC;

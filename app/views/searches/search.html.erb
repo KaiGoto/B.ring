@@ -1,20 +1,20 @@
-<div class="container mt-2">
+<div class="container">
   <h2>
      検索結果
     "<%= @content %>"
   </h2>
   <div class="row col-12">
-    <table class="mx-auto">
-      <thead>
+    <table class="text-center mx-auto, table table-bordered", style="font-size:20px;">
+      <thead class="thead-light">
         <tr>
           <% if @model == "region" %>
-            <td>地域名</td>
-            <td>件数</td>
-
+            <th>地域名</th>
+            <th>件数</th>
           <% else %>
-            <td>場所名</td>
-            <td>地面</td>
-            <td>場所説明</td>
+            <th>場所画像</th>
+            <th>場所名</th>
+            <th>地面</th>
+            <th>場所説明</th>
           <% end %>
           </tr>
       </thead>
@@ -31,18 +31,18 @@
               <%= data.places.count %>件
             </td>
             <% end %>
-            <% end %>
           </tr>
-            <% if @model == "場所名" %>
+          <% end %>
+            <% if @model == "place" %>
             <% @datas.each do |data| %>
           <tr>
-            <td>
-              <%= attachment_image_tag @place, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+            <td width="150">
+              <%= attachment_image_tag(data, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg") %>
             </td>
-            <td>
+            <td width="150">
               <%= data.name %>
             </td>
-            <td>
+            <td width="150">
               <%= data.ground%>
             </td>
             <td>
