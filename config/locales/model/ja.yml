@@ -4,6 +4,7 @@ ja:
       uer: 会員
       region: 地域
       place: 場所
+      contact: お問合せ
     attributes:
       user:
         last_name: 名字
@@ -22,6 +23,10 @@ ja:
         region: 地域名
         name: 場所名
         explanation: 場所説明
+      contact:
+        name: 名前
+        email: メールアドレス
+        message: メッセージ
   views:
       pagination:
         first: '最初'
