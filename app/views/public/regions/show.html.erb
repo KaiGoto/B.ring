@@ -1,7 +1,6 @@
 <div class="region">
   <div class="container">
     <h2><%= @regions.name %>地域</h2>
-    <p>全<%= @place_all.count %>件</p>
     <div class="row col-12">
       <table class="text-center, mx-auto, table table-bordered", style="font-size:20px;">
         <thead class="thead-light">
@@ -15,7 +14,7 @@
           <% @regions.places.each do |region| %>
           <tr>
             <td width="150">
-              <%= link_to place_path(@regions) do %>
+              <%= link_to place_path(region) do %>
               <%= region.name %>
               <% end %>
             </td>

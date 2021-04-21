@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   namespace :admins do
     resources :users, only: [:index, :show, :edit, :update]
-    resources :places, only: [:index, :show, :new, :edit, :update, :create, :destroy ]
+    resources :places, only: [:index, :show, :new, :edit, :update, :create, :destroy ] do
+      resources :place_comments, only: [:destroy]
+    end
     resources :regions, only: [:index, :show, :edit, :update, :create, :destroy]
   end
 

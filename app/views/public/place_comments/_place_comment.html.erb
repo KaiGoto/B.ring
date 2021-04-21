@@ -3,6 +3,7 @@
     <div class="commentlist">
       <div class="commentitem">
         コメント<%= place.place_comments.count %>件
+        <%= render 'layouts/errors_massage', obj: place_comment %>
         <table class="table table-bordered">
           <thead class="thead-light">
             <tr>
@@ -22,13 +23,14 @@
             <td width="150">
               <% if place_comment.user == current_user %>
               <a class="comment-delete">
-                <%= link_to "削除", place_place_comment_path(place_comment.place,place_comment), method: :delete, remote: true, class:"btn btn-danger" %>
+                <%= link_to "削除", place_place_comment_path(place_comments.place,place_comment), method: :delete, class:"btn btn-danger" %>
               </a>
               <% end %>
             </td>
           </tr>
           <% end %>
         </table>
+        <%= paginate @place_comment_kaminari %>
       </div>
       <% if user_signed_in? %>
       <div class="new-comment text-center">

@@ -1,8 +1,8 @@
 <div class="container">
   <h2>登録情報編集</h2><br>
   <%= form_with model: @user, local:true do |f| %>
+  <%= render 'layouts/errors_massage', obj: @user %>
   <div class="row">
-    <%= render 'layouts/errors_massage', obj: @user %>
       <table class="mx-auto", style="font-size:20px;">
         <thead>
           <tr>

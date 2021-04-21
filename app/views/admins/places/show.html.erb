@@ -54,7 +54,7 @@
             <td width="250"><%= place_comment.comment %></td>
             <td width="150">
               <a class="comment-delete">
-                <%= link_to "削除", place_place_comment_path(place_comment.place,place_comment), method: :delete, "data-confirm" => "本当に削除?", class:"btn btn-danger px-4" %>
+                <%= link_to "削除", admins_place_place_comment_path(place_comment.user.places,place_comment), method: :delete, "data-confirm" => "本当に削除しますか?", class:"btn btn-danger px-4" %>
               </a>
             </td>
           </tr>

@@ -17,7 +17,7 @@
       <body>
         <% @place.each do |place|%>
           <tr>
-            <td><%= attachment_image_tag(place, :image, :fill, 200, 150, format: 'jpeg', fallback: "no_image.jpg") %></td>
+            <td><%= attachment_image_tag(place, :image, :fill, 150, 100, format: 'jpeg', fallback: "no_image.jpg") %></td>
             <td><%= place.id %></td>
             <td>
               <%= link_to admins_place_path(place.id) do %>
@@ -31,6 +31,6 @@
       </body>
       <% end %>
     </table>
-    <%= paginate @place %>
+    <%= paginate @place_kaminari %>
   </div>
 </div>

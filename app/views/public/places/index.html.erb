@@ -14,22 +14,22 @@
           </tr>
         </thead>
         <body>
-          <% @places.each do |place|%>
-          <tr>
-            <td>
-              <%= link_to place_path(place.id) do %>
-              <%= attachment_image_tag(place, :image, :fill, 150, 100, format: 'jpeg', fallback: "no_image.jpg") %>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to place_path(place.id) do %>
-              <%= place.name %>
-              <% end %>
-            </td>
-            <td><%= place.address %></td>
-            <td><%= place.region.name %></td>
-            <td><%= place.place_comments.count %></td>
-          </tr>
+          <% @place.each do |place|%>
+            <tr>
+              <td>
+                <%= link_to place_path(place.id) do %>
+                <%= attachment_image_tag(place, :image, :fill, 150, 100, format: 'jpeg', fallback: "no_image.jpg") %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to place_path(place.id) do %>
+                <%= place.name %>
+                <% end %>
+              </td>
+              <td><%= place.address %></td>
+              <td><%= place.region.name %></td>
+              <td><%= place.place_comments.count %></td>
+            </tr>
           <% end %>
         </body>
       </table>
