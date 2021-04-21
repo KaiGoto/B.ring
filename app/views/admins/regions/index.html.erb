@@ -5,10 +5,12 @@
         <%= form_with model: @regions, url: admins_regions_path, local: true do |f| %>
     <div class="row">
       <div class="mx-auto">
-          <%= f.label :"地域名" %>
-          <%= f.text_field :name, placeholder: "地域名" %>
-          <%= f.submit "新規登録",class: 'btn btn-primary px-4' %>
+        <div class="form-inline">
+          <a width="50"><%= f.label :"地域名" %></a>
+          <a width="50"><%= f.text_field :name, placeholder: "地域名" %></a>
+          <a width="50"><%= f.submit "新規登録",class: 'btn btn-primary px-4' %></a>
           <% end %>
+        </div>
         <table class="text-center mx-auto, table table-bordered", style="font-size:20px;">
           <thead class="thead-light">
             <tr>
@@ -18,12 +20,12 @@
           <body>
             <% @region.each do |region| %>
             <tr>
-              <td>
+              <td width="150">
                 <%= link_to admins_region_path(region.id) do %>
                 <%= region.name %>
                 <% end %>
               </td>
-              <td><%= link_to "編集する", edit_admins_region_path(region),class: 'btn btn-success px-4' %></td>
+              <td width="150"><%= link_to "編集する", edit_admins_region_path(region),class: 'btn btn-success px-4' %></td>
             </tr>
             <% end %>
           </body>

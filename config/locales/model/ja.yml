@@ -1,0 +1,31 @@
+ja:
+  activerecord:
+    models:
+      uer: 会員
+      region: 地域
+      place: 場所
+    attributes:
+      user:
+        last_name: 名字
+        first_name: 名前
+        k_last_name: 名字のフリガナ
+        k_first_name: 名前のフリガナ
+        nickname: 表示名
+        email: メールアドレス
+        postal_code: 郵便番号
+        address: 住所
+        telephone_number: 電話番号
+        password: パスワード
+      region:
+        name: 地域名
+      item:
+        region: 地域名
+        name: 場所名
+        explanation: 場所説明
+  views:
+      pagination:
+        first: '最初'
+        last: '最後'
+        previous: '前'
+        next: '次'
+        truncate: '...'

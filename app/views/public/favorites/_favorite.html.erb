@@ -1,4 +1,4 @@
-<div>
+<div style="font-size: 125%;">
   <% if place.favorited_by?(current_user) %>
       <%= link_to place_favorites_path(place), method: :delete, remote: true do %>
         ♥<%= place.favorites.count %>

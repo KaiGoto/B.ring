@@ -71,3 +71,4 @@ gem 'pry-byebug'
 gem "dotenv-rails"
 gem "gmaps4rails"
 gem "geocoder"
+gem 'rails-i18n'
