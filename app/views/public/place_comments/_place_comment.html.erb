@@ -2,9 +2,8 @@
   <div id="place_comment">
     <div class="commentlist">
       <div class="commentitem">
-        コメント<%= place.place_comments.count %>件
-        <%= render 'layouts/errors_massage', obj: place_comment %>
-        <table class="table table-bordered">
+        コメント<%= @place_comments.count %>件
+        <table class="text-center mx-auto, table table-bordered">
           <thead class="thead-light">
             <tr>
               <th>ユーザー画像</th>
@@ -14,7 +13,7 @@
               <th></th>
             </tr>
           </thead>
-          <% place.place_comments.each do |place_comment| %>
+          <% @place_comments.each do |place_comment| %>
           <tr>
             <td width="150"><%= attachment_image_tag(place_comment.user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg") %></td>
             <td width="150"><%= place_comment.user.nickname %>さん</td>

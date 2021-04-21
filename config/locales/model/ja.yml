@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       uer: 会員
+      admin: 管理者
       region: 地域
       place: 場所
       contact: お問合せ
@@ -17,9 +18,28 @@ ja:
         address: 住所
         telephone_number: 電話番号
         password: パスワード
+      admin:
+        name: 名前
+        region: 地域
+        place: 場所
+        user: 会員
+        last_name: 名字
+        first_name: 名前
+        k_last_name: 名字のフリガナ
+        k_first_name: 名前のフリガナ
+        nickname: 表示名
+        email: メールアドレス
+        postal_code: 郵便番号
+        address: 住所
+        telephone_number: 電話番号
+        password: パスワード
+        explanation: 場所説明
+        ground: 地面
+        message: メッセージ
+        comment: コメント
       region:
         name: 地域名
-      item:
+      place:
         region: 地域名
         name: 場所名
         explanation: 場所説明

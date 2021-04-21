@@ -1,9 +1,9 @@
 <div class="placed">  
   <div class="container">
     <h2>場所一覧</h2>
-    <p>全<%= @place_all.count %>件</p>
+    <p>全<%= @place.count %>件</p>
     <div class="row col-12">
-      <table class="text-center mx-auto, table table-bordered", style="font-size:18px;">
+      <table class="text-center mx-auto table table-bordered", style="font-size:18px;">
         <thead class="thead-light">
           <tr>
             <th width="150">場所画像</th>
@@ -34,7 +34,7 @@
         </body>
       </table>
       <div class="text-center", style="font-size:15px;">
-        <%= paginate @place_kaminari %>
+        <%= paginate @place %>
       </div>
     </div>
   </div>

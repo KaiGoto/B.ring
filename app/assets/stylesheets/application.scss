@@ -45,8 +45,7 @@ body {
 }
 
 .max {
-  // height: 750px;
-   position: relative;
+  min-height: calc(100vh - 100px);
 }
 
 .my__page__body {
@@ -75,8 +74,6 @@ table {
 
 
 footer{
-  // bottom: 0;
-  // position: absolute;
   background-color :#444444;
   text-align: center;
   line-height: 120px;
