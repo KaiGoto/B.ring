@@ -14,8 +14,8 @@ class Public::PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @place_comment = PlaceComment.new
-    @place_comments = @place.place_comments.order(created_at: :desc)  #新着順
-    @place_comment_kaminari = PlaceComment.page(params[:page]).per(5) #kaminari
+    @place_comments = @place.place_comments.order(created_at: :desc).page(params[:page]).per(5)  #新着順
+    # @place_comment_kaminari = PlaceComment #kaminari
   end
 
 end
