@@ -19,6 +19,7 @@ before_action :authenticate_admin!
   def show
     @region = Region.find(params[:id])
     @place = Place.all
+    # 場所の住所受け渡し
     if params[:address].present?
       @region = @region.get_by_address params[:address]
     end

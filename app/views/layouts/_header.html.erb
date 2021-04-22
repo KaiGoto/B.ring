@@ -5,6 +5,7 @@
         <%= image_tag('logo.png', size: '95x95') %>
       </a>
       <!--検索機能-->
+      <!--ログイン後に表示-->
       <div class='search-form'>
         <% if user_signed_in? %>
           <%= form_tag(searches_path, method: :get) do %>

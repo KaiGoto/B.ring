@@ -1,7 +1,6 @@
 <div class="container">
   <h2>
-     検索結果
-    "<%= @content %>"
+     検索結果"<%= @content %>"
   </h2>
   <div class="row col-12">
     <table class="text-center mx-auto, table table-bordered", style="font-size:20px;">
@@ -19,6 +18,7 @@
           </tr>
       </thead>
       <body>
+        <!--地域名検索結果-->
         <% if @model == "region" %>
         <% @datas.each do |data| %>
           <tr>
@@ -33,6 +33,7 @@
             <% end %>
           </tr>
           <% end %>
+          <!--場所名検索結果-->
             <% if @model == "place" %>
             <% @datas.each do |data| %>
           <tr>

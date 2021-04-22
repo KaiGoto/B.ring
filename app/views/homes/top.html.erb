@@ -16,6 +16,7 @@
       </div><br>
       <% if admin_signed_in? %>
       <% else %>
+      <!--サインインしていない状態のみ表示-->
       <div class="text-center">管理者はこちらから<%= link_to "ログイン", new_admin_session_path, class:"btn btn-info px-4" %></div>
       <% end %>
     </div>

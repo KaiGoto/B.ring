@@ -1,90 +1,92 @@
 <div class="container">
-    <h2>場所詳細</h2>
-  <div class="row">
-    <div class="col-4">
-      <%= attachment_image_tag(@place, :image, :fill, 300, 200, format: 'jpeg', fallback: "no_image.jpg") %>
-    </div>
-    <div class="col-8">
-      <table class="text-center mx-auto, table table-bordered", style="font-size:18px;">
-        <thead class="thead-light">
-          <tr>
-            <th width="150">場所名</th>
-            <td><%= @place.name %></td>
-          </tr>
-          <tr>
-            <th>住所</th>
-            <td><%= @place.address %></td>
-          </tr>
-          <tr>
-            <th>地面</th>
-            <td><%= @place.ground %></td>
-          </tr>
-          <tr>
-            <th>場所説明</th>
-            <td><%= @place.explanation %></td>
-          </tr>
-          <tr>
-            <th>地域名</th>
-            <td>
-               <%= link_to admins_region_path do %>
-               <%= @place.region.name %>
-               <% end %>
-               <!--地域詳細ページへのリンク-->
-            </td>
-          </tr>
-        </thead>
-      </table>
-      <div class="commentitem">
-        コメント<%= @place_comment_kaminari.count %>件
-        <table class="text-center mx-auto, table table-bordered">
-          <thead class="thead-light">
-            <tr>
-              <th>ユーザー画像</th>
-              <th>名前</th>
-              <th>時刻</th>
-              <th>コメント</th>
-              <th></th>
-            </tr>
-          </thead>
-          <% @place_comment_kaminari.each do |place_comment| %>
-          <tr>
-            <td width="150"><%= attachment_image_tag(place_comment.user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg") %></td>
-            <td width="150"><%= place_comment.user.nickname %>さん</td>
-            <td width="150"><%= place_comment.created_at.strftime('%Y/%m/%d') %></td>
-            <td width="250"><%= place_comment.comment %></td>
-            <td width="150">
-              <a class="comment-delete">
-                <%= link_to "削除", admins_place_place_comment_path(place_comment.user.places,place_comment), method: :delete, "data-confirm" => "本当に削除しますか?", class:"btn btn-danger px-4" %>
-              </a>
-            </td>
-          </tr>
-          <% end %>
-        </table>
-        <%= paginate @place_comment_kaminari %>
+  <h2>場所詳細</h2>
+    <div class="row">
+      <div class="col-4">
+        <%= attachment_image_tag(@place, :image, :fill, 300, 200, format: 'jpeg', fallback: "no_image.jpg") %>
       </div>
+        <div class="col-8">
+          <table class="text-center mx-auto, table table-bordered", style="font-size:18px;">
+            <thead class="thead-light">
+              <tr>
+                <th width="150">場所名</th>
+                <td><%= @place.name %></td>
+              </tr>
+              <tr>
+                <th>住所</th>
+                <td><%= @place.address %></td>
+              </tr>
+              <tr>
+                <th>地面</th>
+                <td><%= @place.ground %></td>
+              </tr>
+              <tr>
+                <th>場所説明</th>
+                <td><%= @place.explanation %></td>
+              </tr>
+              <tr>
+                <th>地域名</th>
+                <td>
+                   <%= link_to admins_region_path do %>
+                   <%= @place.region.name %>
+                   <% end %>
+                   <!--地域詳細ページへのリンク-->
+                </td>
+              </tr>
+            </thead>
+          </table>
+          <!--コメント一覧-->
+          <div class="commentitem">
+            コメント<%= @place_comment_kaminari.count %>件
+            <table class="text-center mx-auto, table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th>ユーザー画像</th>
+                  <th>名前</th>
+                  <th>時刻</th>
+                  <th>コメント</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <% @place_comment_kaminari.each do |place_comment| %>
+              <tr>
+                <td width="150"><%= attachment_image_tag(place_comment.user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg") %></td>
+                <td width="150"><%= place_comment.user.nickname %>さん</td>
+                <td width="150"><%= place_comment.created_at.strftime('%Y/%m/%d') %></td>
+                <td width="250"><%= place_comment.comment %></td>
+                <td width="150">
+                  <a class="comment-delete">
+                    <%= link_to "削除", admins_place_place_comment_path(place_comment.user.places,place_comment), method: :delete, "data-confirm" => "本当に削除しますか?", class:"btn btn-danger px-4" %>
+                  </a>
+                </td>
+              </tr>
+              <% end %>
+            </table>
+            <!--ページネーション-->
+            <%= paginate @place_comment_kaminari %>
+          </div>
+        </div>
+        <div class="col-12 text-center">
+          <%=link_to "編集する", edit_admins_place_path(@place), class: 'btn btn-success px-4' %>
+        </div>
+    </div><br>
+    <!--地図表示-->
+    <div class="row">
+    <div id="map" class="col-12 text-center" style='width: 50%; height: 300px;'></div>
+      <script type="text/javascript">
+          handler = Gmaps.build('Google');
+          handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+            markers = handler.addMarkers([
+              {
+                "lat": <%= @place.latitude %>,
+                "lng": <%= @place.longitude %>,
+                "infowindow": '<p><%= @place.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@place.latitude},#{@place.longitude}&iwloc=J",target: "_blank" ,class:"gmap-link"%></p>',
+  
+              }
+            ]);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            handler.getMap().setZoom(17);
+          });
+      </script>
     </div>
-      <div class="col-12 text-center">
-        <%=link_to "編集する", edit_admins_place_path(@place), class: 'btn btn-success px-4' %>
-      </div>
-  </div><br>
-  <!--地図表示-->
-  <div class="row">
-  <div id="map" class="col-12 text-center" style='width: 50%; height: 300px;'></div>
-    <script type="text/javascript">
-        handler = Gmaps.build('Google');
-        handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
-          markers = handler.addMarkers([
-            {
-              "lat": <%= @place.latitude %>,
-              "lng": <%= @place.longitude %>,
-              "infowindow": '<p><%= @place.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@place.latitude},#{@place.longitude}&iwloc=J",target: "_blank" ,class:"gmap-link"%></p>',
-
-            }
-          ]);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-          handler.getMap().setZoom(17);
-        });
-    </script>
-  </div>
 </div>

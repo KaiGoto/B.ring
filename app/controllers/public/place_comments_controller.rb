@@ -6,6 +6,7 @@ class Public::PlaceCommentsController < ApplicationController
     @comment.place_id = @place.id
     @comment.save
     @place_comment = PlaceComment.new
+    # kaminari
     @place_comments = @place.place_comments.page(params[:page]).per(5)
     render :create
   end
@@ -14,8 +15,8 @@ class Public::PlaceCommentsController < ApplicationController
     @place = Place.find(params[:place_id])
     @place_comment = PlaceComment.find(params[:id]).destroy
     @place_comment.destroy
+    # kaminari
     @place_comments = @place.place_comments.page(params[:page]).per(5)
-    # redirect_to request.referer
   end
 
   private

@@ -1,41 +1,39 @@
-<div class="placed">  
-  <div class="container">
-    <h2>場所一覧</h2>
-    <p>全<%= @place.count %>件</p>
-    <div class="row col-12">
-      <table class="text-center mx-auto table table-bordered", style="font-size:18px;">
-        <thead class="thead-light">
+ <div class="container">
+  <h2>場所一覧</h2>
+  <p>全<%= @place.count %>件</p>
+  <div class="row col-12">
+    <table class="text-center mx-auto table table-bordered", style="font-size:18px;">
+      <thead class="thead-light">
+        <tr>
+          <th width="150">場所画像</th>
+          <th width="150">場所名</th>
+          <th width="200">住所</th>
+          <th width="100">地域名</th>
+          <th width="100">コメント件数</th>
+        </tr>
+      </thead>
+      <body>
+        <% @place.each do |place|%>
           <tr>
-            <th width="150">場所画像</th>
-            <th width="150">場所名</th>
-            <th width="200">住所</th>
-            <th width="100">地域名</th>
-            <th width="100">コメント件数</th>
+            <td>
+              <%= link_to place_path(place.id) do %>
+              <%= attachment_image_tag(place, :image, :fill, 150, 100, format: 'jpeg', fallback: "no_image.jpg") %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to place_path(place.id) do %>
+              <%= place.name %>
+              <% end %>
+            </td>
+            <td><%= place.address %></td>
+            <td><%= place.region.name %></td>
+            <td><%= place.place_comments.count %></td>
           </tr>
-        </thead>
-        <body>
-          <% @place.each do |place|%>
-            <tr>
-              <td>
-                <%= link_to place_path(place.id) do %>
-                <%= attachment_image_tag(place, :image, :fill, 150, 100, format: 'jpeg', fallback: "no_image.jpg") %>
-                <% end %>
-              </td>
-              <td>
-                <%= link_to place_path(place.id) do %>
-                <%= place.name %>
-                <% end %>
-              </td>
-              <td><%= place.address %></td>
-              <td><%= place.region.name %></td>
-              <td><%= place.place_comments.count %></td>
-            </tr>
-          <% end %>
-        </body>
-      </table>
-      <div class="text-center", style="font-size:15px;">
-        <%= paginate @place %>
-      </div>
+        <% end %>
+      </body>
+    </table>
+    <div class="text-center", style="font-size:15px;">
+      <%= paginate @place %>
     </div>
   </div>
 </div>

@@ -1,36 +1,37 @@
 <div class="container">
   <h2>場所一覧</h2>
-  <p>全<%= @place_all.count %>件</p>
-  <p>新規登録する場合は<%= link_to "こちら", new_admins_place_path %>から</p>
-  <div class="row">
-    <table class="text-center mx-auto, table table-bordered", style="font-size:20px;">
-      <thead class="thead-light">
-        <tr>
-          <th width="150">場所画像</th>
-          <th width="100">場所ID</th>
-          <th width="150">場所名</th>
-          <th width="250">住所</th>
-          <th width="100">地域名</th>
-          <th width="150">地面</th>
-        </tr>
-      </thead>
-      <body>
-        <% @place.each do |place|%>
-          <tr>
-            <td><%= attachment_image_tag(place, :image, :fill, 150, 100, format: 'jpeg', fallback: "no_image.jpg") %></td>
-            <td><%= place.id %></td>
-            <td>
-              <%= link_to admins_place_path(place.id) do %>
-              <%= place.name %>
+    <p>全<%= @place_all.count %>件</p>
+      <p>新規登録する場合は<%= link_to "こちら", new_admins_place_path %>から</p>
+        <div class="row">
+          <table class="text-center mx-auto, table table-bordered", style="font-size:20px;">
+            <thead class="thead-light">
+              <tr>
+                <th width="150">場所画像</th>
+                <th width="100">場所ID</th>
+                <th width="150">場所名</th>
+                <th width="250">住所</th>
+                <th width="100">地域名</th>
+                <th width="150">地面</th>
+              </tr>
+            </thead>
+            <body>
+              <% @place.each do |place|%>
+                <tr>
+                  <td><%= attachment_image_tag(place, :image, :fill, 150, 100, format: 'jpeg', fallback: "no_image.jpg") %></td>
+                  <td><%= place.id %></td>
+                  <td>
+                    <%= link_to admins_place_path(place.id) do %>
+                    <%= place.name %>
+                    <% end %>
+                  </td>
+                  <td><%= place.address %></td>
+                  <td><%= place.region.name %></td>
+                  <td><%= place.ground %></td>
+                </tr>
               <% end %>
-            </td>
-            <td><%= place.address %></td>
-            <td><%= place.region.name %></td>
-            <td><%= place.ground %></td>
-          </tr>
-      </body>
-      <% end %>
-    </table>
-    <%= paginate @place_kaminari %>
-  </div>
+            </body>
+          </table>
+          <!--ページネーション-->
+          <%= paginate @place_kaminari %>
+        </div>
 </div>

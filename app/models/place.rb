@@ -5,10 +5,11 @@ class Place < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorited_users, through: :favorites, source: :user
   has_many :place_comments, dependent: :destroy
-  # 緯度軽度
+  # 地図表示、緯度経度
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
-
+　
+# 　いいね
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end

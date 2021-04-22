@@ -1,8 +1,10 @@
 <div style="font-size: 125%;">
+  <!--いいね削除-->
   <% if place.favorited_by?(current_user) %>
       <%= link_to place_favorites_path(place), method: :delete, remote: true do %>
         ♥<%= place.favorites.count %>
     　<% end %>
+　<!--いいねする-->
   <% else %>
       <%= link_to place_favorites_path(place), method: :post, remote: true do %>
         ♡<%= place.favorites.count %>

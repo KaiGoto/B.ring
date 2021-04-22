@@ -17,6 +17,7 @@ before_action :authenticate_user!
     @user = current_user
   end
   
+  # --退会機能--
   def confirm
     @user = current_user
   end
@@ -27,6 +28,8 @@ before_action :authenticate_user!
     reset_session
     redirect_to root_path
   end
+# 　----
+
 
   private
   def user_params

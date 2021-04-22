@@ -22,6 +22,7 @@
             <td width="150">
               <% if place_comment.user == current_user %>
               <a class="comment-delete">
+                <!--非同期通信-->
                 <%= link_to "削除", place_place_comment_path(place_comment.place,place_comment), method: :delete, remote: true, class:"btn btn-danger" %>
               </a>
               <% end %>
@@ -29,10 +30,13 @@
           </tr>
           <% end %>
         </table>
+        <!--ページネーション-->
         <%= paginate @place_comments %>
       </div>
+      <!--サインインしている会員にコメントフォームを表示-->
       <% if user_signed_in? %>
       <div class="new-comment text-center">
+        <!--非同期通信-->
         <%= form_with(model:[@place, @place_comment], remote: true) do |f| %>
         <%= f.text_area :comment, rows:'5', cols:"40",placeholder: "コメントをここに" %>
         <br><span class="text-center"><%= f.submit "送信する", class:"btn btn-primary px-4" %></span>

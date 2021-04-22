@@ -1,39 +1,39 @@
 <div class="container">
   <h2>会員一覧</h2>
-  <div class="row">
-    <table class="text-center mx-auto, table table-bordered", style="font-size:18px;">
-      <thead class="thead-light">
-        <tr>
-          <th width="150">プロフィール画像</th>
-          <th width="150">会員ID</th>
-          <th width="150">氏名</th>
-          <th width="150">表示名</th>
-          <th width="150">メールアドレス</th>
-          <th width="150">ステータス</th>
-      </thead>
-      <body>
-        <% @user.each do |user| %>
-        <tr>
-          <td width="150"><%= attachment_image_tag(user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg") %></td>
-          <td><%= user.id %></td>
-          <td>
-            <%= link_to admins_user_path(user) do %>
-            <%= user.last_name %><%= user.first_name %>
+    <div class="row">
+      <table class="text-center mx-auto, table table-bordered", style="font-size:18px;">
+        <thead class="thead-light">
+          <tr>
+            <th width="150">プロフィール画像</th>
+            <th width="150">会員ID</th>
+            <th width="150">氏名</th>
+            <th width="150">表示名</th>
+            <th width="150">メールアドレス</th>
+            <th width="150">ステータス</th>
+        </thead>
+        <body>
+          <% @user.each do |user| %>
+          <tr>
+            <td width="150"><%= attachment_image_tag(user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg") %></td>
+            <td><%= user.id %></td>
+            <td>
+              <%= link_to admins_user_path(user) do %>
+              <%= user.last_name %><%= user.first_name %>
+              <% end %>
+            </td>
+            <td><%= user.nickname %></td>
+            <td><%= user.email %></td>
+            <% if user.is_valid == true %>
+            <td class="text-success">有効</td>
+            <% else %>
+            <td class="text-secondary">退会</td>
             <% end %>
-          </td>
-          <td><%= user.nickname %></td>
-          <td><%= user.email %></td>
-          <% if user.is_valid == true %>
-          <td class="text-success">有効</td>
-          <% else %>
-          <td class="text-secondary">退会</td>
-          <% end %>
-        </tr>
-      </body>
-      <% end %>
-    </table>
-    <div class="text-center", style="font-size:1px;">
-      <%= paginate @user %>
+          </tr>
+        </body>
+        <% end %>
+      </table>
+      <div class="text-center", style="font-size:1px;">
+        <%= paginate @user %>
+      </div>
     </div>
-  </div>
 </div>
