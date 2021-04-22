@@ -1,10 +1,11 @@
 <header class=" header border-dark">
   <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container mt-2">
+    <div class="container">
       <a class="navbar-brand p-3" href="/"><!--ロゴからトップページへ-->
         <%= image_tag('logo.png', size: '95x95') %>
       </a>
       <!--検索機能-->
+      <!--ログイン後に表示-->
       <div class='search-form'>
         <% if user_signed_in? %>
           <%= form_tag(searches_path, method: :get) do %>
@@ -30,8 +31,8 @@
           <!--管理者ログイン後-->
           <% elsif admin_signed_in? %>
             <li class="text-body mr-4">管理者</li>
-            <li><%= link_to "場所一覧", admins_places_path, class:"fas fa-map-marker-alt text-body mr-4" %></li>
             <li><%= link_to "地域一覧", admins_regions_path, class:"fas fa-globe-asia text-body mr-4" %></li>
+            <li><%= link_to "場所一覧", admins_places_path, class:"fas fa-map-marker-alt text-body mr-4" %></li>
             <li><%= link_to "会員一覧", admins_users_path, class:"fas fa-user text-body mr-4" %></li>
             <li><%= link_to "Logout", destroy_admin_session_path, method: :delete, class:"fas fa-sign-out-alt text-body mr-4" %></li>
           <!--ログイン前-->

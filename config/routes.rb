@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   namespace :admins do
     resources :users, only: [:index, :show, :edit, :update]
-    resources :places, only: [:index, :show, :new, :edit, :update, :create, :destroy ]
+    resources :places, only: [:index, :show, :new, :edit, :update, :create, :destroy ] do
+      resources :place_comments, only: [:destroy]
+    end
     resources :regions, only: [:index, :show, :edit, :update, :create, :destroy]
   end
 
@@ -34,5 +36,7 @@ Rails.application.routes.draw do
     post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
     post 'contacts/back', to: 'contacts#back', as: 'back'
     get 'done', to: 'contacts#done', as: 'done'
+    get 'confirm/:id' => 'users#confirm', as: 'confirm_confirm'
+    patch 'withdraw/:id' => 'users#withdraw', as: 'withdraw_user'
   end
 end

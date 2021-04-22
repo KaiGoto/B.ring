@@ -16,9 +16,23 @@ before_action :authenticate_user!
   def edit
     @user = current_user
   end
+  
+  # --退会機能--
+  def confirm
+    @user = current_user
+  end
+
+  def withdraw
+    @user = current_user
+    @user.update(is_valid: false)
+    reset_session
+    redirect_to root_path
+  end
+# 　----
+
 
   private
   def user_params
-    params.require(:user).permit(:last_name, :first_name, :k_first_name, :k_last_name, :nickname, :postal_code, :address, :telephone_number, :email, :image)
+    params.require(:user).permit(:image, :last_name, :first_name, :k_first_name, :k_last_name, :nickname, :postal_code, :address, :telephone_number, :email)
   end
 end

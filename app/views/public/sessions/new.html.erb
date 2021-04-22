@@ -1,28 +1,28 @@
-<div class="container mt-2">
-  <h2>Log in</h2>
-  <h5>会員の方はこのページからログイン</h5>
-  <p id="alert-notice"><%= notice %></p>
-  <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-  <div class="row">
-    <table class="mx-auto">
-      <thead>
-        <tr>
-          <td><%= f.label "メールアドレス" %></td>
-          <td></td>
-          <td><%= f.email_field :email, placeholder: "sample@example.com", autofocus: true, autocomplete: "email", class: "hoge", size: 40 %></td><br>
-        </tr>
-        <tr>
-          <td><%= f.label "パスワード" %></td>
-          <td></td>
-          <td><%= f.password_field :password, autocomplete: "current-password", class: "hoge", size: 40 %></td><br>
-        </tr>
-      </thead>
-    </table>
-  </div><br>
-  <div class="text-center"><%= f.submit "ログイン", class: 'btn btn-primary px-4' %></div><br>
-    <% end %>
-    <div>
-      <h5><span class="new">会員登録がお済みでない方</span></h5>
-      <%= link_to "こちら", new_user_registration_path %>　から会員登録を行ってください。
-    </div>
+<div class="in">    
+  <div class="container">
+    <h2>Log in</h2>
+    <h5>会員の方はこのページからログイン</h5>
+    <p id="alert-notice"><%= notice %></p>
+    <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+      <table class="mx-auto", style="font-size:20px;">
+        <thead>
+          <tr>
+            <td><%= f.label "メールアドレス" %></td>
+            <td></td>
+            <td><%= f.email_field :email, placeholder: "sample@example.com", autofocus: true, autocomplete: "email", class: "hoge", size: 40 %></td><br>
+          </tr>
+          <tr>
+            <td><%= f.label "パスワード" %></td>
+            <td></td>
+            <td><%= f.password_field :password, autocomplete: "current-password", class: "hoge", size: 40 %></td><br>
+          </tr>
+        </thead>
+      </table><br>
+    <div class="text-center"><%= f.submit "ログイン", class: 'btn btn-primary px-4' %></div><br>
+      <% end %>
+      <div>
+        <h5><span class="new">会員登録がお済みでない方</span></h5>
+        <%= link_to "こちら", new_user_registration_path, style: 'color:black;' %>　から会員登録を行ってください。
+      </div>
+  </div>
 </div>

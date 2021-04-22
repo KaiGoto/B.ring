@@ -1,21 +1,23 @@
-<div class="container mt-2">
+<div class="container">
   <h2>お問合せ内容確認</h2>
-  <%= render 'layouts/errors_massage', obj: @contact %>
-  <table class="mx-auto">
-    <tbody>
+  <table class="mx-auto", style="font-size:20px;">
+    <thead>
       <tr>
-        <td class="width:150">お名前</td>
+        <td>お名前</td>
+        <td width="100"></td>
         <td><%= @contact.name %></td>
       </tr>
       <tr>
         <td>メールアドレス</td>
+        <td width="100"></td>
         <td><%= @contact.email %></td>
       </tr>
       <tr>
         <td>メッセージ</td>
+        <td width="100"></td>
         <td><%= @contact.message %></td>
       </tr>
-    </tbody>
+    </thead>
   </table>
 
   <%= form_with model: @contact, local:true do |f| %>

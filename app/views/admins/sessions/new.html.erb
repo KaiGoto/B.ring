@@ -1,33 +1,34 @@
-<div class="container mt-2">
-  <h2>Admin log in</h2>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= render 'layouts/errors_massage', obj: @admin %>
-  <div class="row col-12 text-center">
-    <table class="offset-3">
-      <thead>
-        <tr>
-          <td><%= f.label "メールアドレス" %></td>
-          <td><%= f.email_field :email, placeholder: "sample@example.com", autofocus: true, autocomplete: "email", class: "hoge", size: 40 %></td>
-        </tr>
-        <tr>
-          <td><%= f.label "パスワード" %></td>
-          <td><%= f.password_field :password, autocomplete: "current-password", class: "hoge", size: 40 %></td>
-        </tr>
-        <td></td>
-        <td>
-          <% if devise_mapping.rememberable? %>
-          <div class="text-left">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
-          <% end %>
-        </td>
-      </thead>
-    </table><br>
-  </div><br>
-    <div class="text-center">
-      <%= f.submit "ログイン", class: "btn btn-primary px-4"%>
-    </div><br>
-    <% end %>
-
+<div class="in">
+  <div class="container">
+    <h2>Admin log in</h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render 'layouts/errors_massage', obj: @admin %>
+      <div class="row col-12 text-center">
+        <table class="offset-3", style="font-size:20px;">
+          <thead>
+            <tr>
+              <td><%= f.label "メールアドレス" %></td>
+              <td><%= f.email_field :email, placeholder: "sample@example.com", autofocus: true, autocomplete: "email", class: "hoge", size: 40 %></td>
+            </tr>
+            <tr>
+              <td><%= f.label "パスワード" %></td>
+              <td><%= f.password_field :password, autocomplete: "current-password", class: "hoge", size: 40 %></td>
+            </tr>
+            <td></td>
+            <td>
+              <% if devise_mapping.rememberable? %>
+              <div class="text-left">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+              <% end %>
+            </td>
+          </thead>
+        </table><br>
+      </div><br>
+      <div class="text-center">
+        <%= f.submit "ログイン", class: "btn btn-primary px-4"%>
+      </div><br>
+      <% end %>
+  </div>
 </div>

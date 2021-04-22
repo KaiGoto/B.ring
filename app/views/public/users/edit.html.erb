@@ -1,13 +1,13 @@
-<div class="container mt-2">
+<div class="container pt-2">
   <h2>登録情報編集</h2><br>
   <%= form_with model: @user, local:true do |f| %>
-  <div class="row">
-    <%= render 'layouts/errors_massage', obj: @user %>
-      <table class="mx-auto">
+  <%= render 'layouts/errors_massage', obj: @user %>
+  <div class="row my__page__body">
+      <table class="mx-auto", style="font-size:20px;">
         <thead>
           <tr>
             <th class="fas fa-portrait">プロフィール画像</th>
-            <td><%= f.file_field :image_id, placeholder: "プロフィール画像" %></td>
+            <td><%= f.file_field :image, placeholder: "プロフィール画像" %></td>
           </tr>
           <tr>
             <th class="fas fa-signature">氏名</th>
@@ -51,11 +51,10 @@
           </tr>
         </thead>
       </table>
+  </div><br>
+  <div class="row col-10">
+      <a class="mx-auto"><%= f.submit '編集内容を保存', class:"btn btn-success px-4" %></a>
+      <a class="mx-auto"><%= link_to "退会する", confirm_confirm_path, class:"btn btn-danger px-4" %></a>
+    <% end %>
   </div>
-      <div class="text-center">
-        <%= f.submit '編集内容を保存', class:"btn btn-success px-4" %>
-        <%#= link_to "退会する", confirm_confirm_path, class:"btn btn-danger px-4" %>
-              <!--退会機能実装後-->
-      </div>
-      <% end %>
 </div>

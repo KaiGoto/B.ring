@@ -15,7 +15,7 @@ before_action :authenticate_admin!
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to admins_user_path(@user), notice: "更新しました"
+      redirect_to admins_user_path(@user)
     else
       render "edit"
     end

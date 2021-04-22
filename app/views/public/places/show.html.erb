@@ -1,81 +1,66 @@
-<div class="container mt-2">
+<div class="container">
   <h2>場所詳細</h2>
-  <font color="red">いいね数</font>
-  <% if user_signed_in? %>
-  <!--いいね機能ページ-->
-  <div id="favorite-<%= @place.id %>">
-    <%= render 'public/favorites/favorite', place: @place %>
-  </div>
-  <% end %>
-  <div class="row">
-    <span class="col-4"><%= attachment_image_tag(@place, :image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></span>
-    <div class="col-8">
-      <table>
-        <thead>
-          <tr>
-            <td width="150">場所名</td>
-            <td><%= @place.name %></td>
-          </tr>
-          <tr>
-            <td>地面</td>
-            <td><%= @place.ground %></td>
-          </tr>
-          <tr>
-            <td>場所説明</td>
-            <td><%= @place.explanation %></td>
-          </tr>
-          <tr>
-            <td>地域名</td>
-            <td>
-              <%= link_to region_path do %>
-              <%= @place.region.name %>
-              <% end %>
-            </td>
-          </tr>
-            <td>コメント件数</td>
-            <td><%= @place.place_comments.count %></td>
-          </tr>
-        </thead>
-      </table>
-      <table>
-        <thead>
-          <tr>
-            <!--コメントページ-->
-            <div class="comments">
-              <div id="place_comment">
-                <td width="150">
-                  <%= render 'public/place_comments/index', place: @place %>
+    <font color="red", style="font-size: 125%;">いいね数</font>
+      <% if user_signed_in? %>
+      <!--いいね機能ページ-->
+      <div id="favorite-<%= @place.id %>">
+        <%= render 'public/favorites/favorite', place: @place %>
+      </div>
+      <% end %>
+      <div class="row">
+        <span class="col-3"><%= attachment_image_tag(@place, :image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %></span>
+        <div class="col-9">
+          <table class="text-center mx-auto, table table-bordered", style="font-size:18px;">
+            <thead class="thead-light">
+              <tr>
+                <th width="150">場所名</th>
+                <td><%= @place.name %></td>
+              </tr>
+              <tr>
+                <th>住所</th>
+                <td><%= @place.address %></td>
+              </tr>
+                <th>地面</th>
+                <td><%= @place.ground %></td>
+              </tr>
+              <tr>
+                <th>場所説明</th>
+                <td><%= @place.explanation %></td>
+              </tr>
+              <tr>
+                <th>地域名</th>
+                <td>
+                  <%= link_to region_path do %>
+                  <%= @place.region.name %>
+                  <% end %>
                 </td>
-              </div>
-            </div>
-          </tr>
-        </thead>
-      </table>
-          <div class="new-comment text-center">
-            <%= form_with(model:[@place, @place_comment], remote: true) do |f| %>
-            <%= f.text_area :comment, rows:'5', cols:"40",placeholder: "コメントをここに" %>
-            <br><span class="text-center"><%= f.submit "送信する", class:"btn btn-primary px-4" %></span>
-            <% end %>
-          </div>
-    </div>
-  </div><br>
-  <!--地図表示-->
-  <div class="row">
-  <div id="map" class="col-12 text-center" style='width: 50%; height: 250px;'></div>
-    <script type="text/javascript">
-        handler = Gmaps.build('Google');
-        handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
-          markers = handler.addMarkers([
-            {
-              "lat": <%= @place.latitude %>,
-              "lng": <%= @place.longitude %>,
-              "infowindow": '<p><%= @place.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@place.latitude},#{@place.longitude}&iwloc=J",target: "_blank" ,class:"gmap-link"%></p>',
-
-            }
-          ]);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-          handler.getMap().setZoom(17);
-        });
-    </script>
+            </thead>
+          </table>
+          <!--コメントページ-->
+          <%= render 'public/place_comments/place_comment', place: @place, place_comment: @place_comment %>
+        </div>
+      </div><br>
+      <!--地図表示-->
+      <div class="row">
+        <!--地図サイズ-->
+        <div id="map" class="col-12 text-center" style='width: 50%; height: 300px;'></div>
+          <script type="text/javascript">
+            handler = Gmaps.build('Google');
+            handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map'}}, function(){
+              markers = handler.addMarkers([
+                {
+                  // 緯度
+                  "lat": <%= @place.latitude %>,
+                  // 経度
+                  "lng": <%= @place.longitude %>,
+                  "infowindow": '<p><%= @place.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@place.latitude},#{@place.longitude}&iwloc=J",target: "_blank" ,class:"gmap-link"%></p>',
+    
+                }
+              ]);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+              handler.getMap().setZoom(17);
+              });
+          </script>
+        </div>
   </div>
