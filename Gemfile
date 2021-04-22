@@ -68,14 +68,8 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'pry-byebug'
-<<<<<<< HEAD
 gem 'dotenv-rails'
-group :production do
-  gem 'mysql2'
-end
-=======
 gem "dotenv-rails"
 gem "gmaps4rails"
 gem "geocoder"
 gem 'rails-i18n'
->>>>>>> 8ce3cb381376893f12bd49344fe212964977399e

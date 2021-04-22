@@ -23,15 +23,3 @@ User.create!(
    password: "aaaaaa",
    is_valid: "true",
 )
-
-# Region.create!(
-#    name: "南河内"
-# )
-
-# Place.create!(
-#    region_id: "1",
-#    image: File.open("./app/assets/images/sample.jpeg"),
-#    name: "はーとビュー（人権交流センター）",
-#    ground: "コンクリート",
-#    explanation: "フルコートでリングも２つあり、土日は地元松原市の学生たちで賑わっています。",
-# )
