@@ -8,7 +8,6 @@ class Place < ApplicationRecord
   # 地図表示、緯度経度
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
-　
 # 　いいね
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

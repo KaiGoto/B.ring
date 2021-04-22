@@ -15,8 +15,7 @@ before_action :authenticate_admin!
     if params[:name].present?
       @region = @region.get_by_name params[:name]
     end
-    # ランキング機能
-　　# いいね数に基づいた順
+    # ランキング機能,いいね数に基づいた順
     @places = Place.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
     @place_kaminari = Kaminari.paginate_array(@places).page(params[:page]).per(5)
   end
