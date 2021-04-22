@@ -1,0 +1,30 @@
+<%= form_for(@contact, url: confirm_path) do |f| %>
+<div class="container">
+  <div class="rowmy__page__body">
+    <table class="mx-auto", style="font-size:20px;">
+      <h2>お問合せフォーム</h2>
+        <%= render 'layouts/errors_massage', obj: @contact %>
+          <thead>
+            <tr>
+              <td><%= f.label :name, 'お名前' %></td>
+              <td></td>
+              <td><%= f.text_field :name, autofocus: true, size: '40x5', placeholder: "大阪太郎" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :email, 'メールアドレス' %></td>
+              <td></td>
+              <td><%= f.text_field :email, autofocus: true, size: '40x5', placeholder: "sample@example.com" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :message, 'メッセージ' %></td>
+              <td></td>
+              <td> <%= f.text_area :message, autofocus: true, size: '40x5', placeholder: "ここに記入してください" %></td>
+            </tr>
+          </thead>
+    </table><br>
+  </div>
+  <div class="text-center">
+    <%= f.submit '入力内容確認', class: 'btn btn-primary px-4' %>
+  </div>
+  <% end %>
+</div>

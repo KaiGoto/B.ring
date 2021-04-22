@@ -1,0 +1,2 @@
+module Search::PublicHelper
+end

@@ -1,0 +1,81 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Orelega One', cursive;
+  font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0px;
+  background-color :#CCCCCC;
+}
+
+
+
+.header {
+  margin: 0;
+  padding: 0px;
+  width: 100%;
+  background-color :#FFFFFF;
+}
+
+.li {
+  list-style: none;
+}
+
+.max {
+  min-height: calc(100vh - 100px);
+}
+
+.my__page__body {
+  height: 400px;
+  padding-top: 20px;
+}
+
+
+// ログイン画面背景
+.in {
+  height: 90vh;
+  width: 100%;
+  background-image: url(img1.jpg);
+  background-size: cover;
+}
+
+table {
+  border-collapse: separate;
+}
+
+
+.btn-warning {
+  // 文字を白色に
+  color: #ffffff;
+}
+
+
+footer{
+  background-color :#444444;
+  text-align: center;
+  line-height: 120px;
+  color: #fff;
+}

@@ -1,0 +1,29 @@
+<div class="region">
+  <div class="container">
+    <h2><%= @region.name %>地域詳細</h2>
+    <div class="row col-12">
+      <table class="text-center, mx-auto, table table-bordered", style="font-size:20px;">
+        <thead class="thead-light">
+          <tr>
+            <th width="200">場所名</th>
+            <th width="150">地面</th>
+            <th colspan="2">住所</th>
+          </tr>
+        <thead>
+        <body>
+          <% @region.places.each do |region| %>
+          <tr>
+            <td width="200">
+              <%= link_to place_path(region) do %>
+              <%= region.name %>
+              <% end %>
+            </td>
+            <td width="150"><%= region.ground %></td>
+            <td colspan="2"><%= region.address %></td>
+          </tr>
+        </body>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

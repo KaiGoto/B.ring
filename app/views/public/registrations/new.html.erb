@@ -1,0 +1,71 @@
+<div class="in">  
+  <div class="container">
+    <h2>Sign up</h2><br>
+    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+    <%= render 'layouts/errors_massage', obj: @user %>
+      <table class="mx-auto", style="font-size:20px;">
+        <thead>
+          <tr>
+            <td>プロフィール画像</td>
+            <td></td>
+            <td><%= f.file_field :image_id, placeholder: "プロフィール画像" %></td>
+          </tr>
+          <tr>
+            <td>名前</td>
+            <td>（姓）</td>
+            <td><%= f.text_field :last_name, placeholder: "大阪", autofocus: true, autocomplete: "last_name" %></td>
+            <td>（名）</td>
+            <td><%= f.text_field :first_name, placeholder: "太郎", autofocus: true, autocomplete: "first_name" %></td>
+          </tr>
+          <tr>
+            <td>フリガナ</td>
+            <td>（セイ）</td>
+            <td><%= f.text_field :k_last_name, placeholder: "オオサカ", autofocus: true, autocomplete: "k_last_name" %></td>
+            <td>（メイ）</td>
+            <td><%= f.text_field :k_first_name, placeholder: "タロウ", autofocus: true, autocomplete: "k_first_name" %></td>
+          </tr>
+           <td>表示名</td>
+            <td></td>
+            <td><%= f.text_field :nickname, placeholder: "なにわ", autofocus: true, autocomplete: "nickname" %></td>
+          <tr>
+            <td>メールアドレス</td>
+            <td></td>
+            <td><%= f.email_field :email,placeholder: "sample@example.com", autofocus: true, autocomplete: "email" %></td>
+          </tr>
+          <tr>
+            <td>郵便番号（ハイフンなし）</td>
+            <td></td>
+            <td><%= f.text_field :postal_code, placeholder: "0000000", autofocus: true, autocomplete: "postal_code" %></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td></td>
+            <td colspan="3"><%= f.text_field :address, placeholder: "大阪府大阪市中央区1-1-1", autofocus: true, autocomplete: "address", class: "hoge", size: 60 %></td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td></td>
+            <td><%= f.text_field :telephone_number, placeholder: "0000000000", autofocus: true, autocomplete: "telephone_number" %></td>
+          </tr>
+          <tr>
+            <td>パスワード（6文字以上）</td>
+            <td></td>
+            <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+          </tr>
+          <tr>
+            <td>パスワード（確認用）</td>
+            <td></td>
+            <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+          </tr>
+        </thead>
+      </table><br>
+      <div class="text-center">
+        <%= f.submit "新規登録", class: 'btn btn-success px-4' %>
+      </div><br>
+      <% end %>
+      <div>
+        <h4><span class="new">すでに既に登録済の方は</span></h4>
+        <h7><%= link_to "こちら", new_user_session_path, style: 'color:black;' %>からログインしてください</h7>
+  　  </div>
+  </div>
+</div>

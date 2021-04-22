@@ -1,0 +1,59 @@
+<div class="user"> 
+  <div class="container">
+    <h2><span><%= @user.nickname %>さんの詳細ページ</span></h2>
+     <div class="row col-12">
+      <div class="col-3">
+        <%= attachment_image_tag(@user, :image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg") %>
+      </div>
+      <div class="col-9">
+        <table class="mx-auto, table table-bordered", style="font-size:20px;">
+          <thead class="thead-light">
+            <tr>
+              <th>会員ID</th>
+              <td><%= @user.id %></td>
+            </tr>
+            <tr>
+              <th>氏名</th>
+              <td><%= @user.last_name %>　<%= @user.first_name %></td>
+            </tr>
+            <tr>
+              <th>フリガナ</th>
+              <td><%= @user.k_last_name %>　<%= @user.k_first_name %></td>
+            </tr>
+            <tr>
+              <th>表示名</th>
+              <td><%= @user.nickname %></td>
+            </tr>
+            <tr>
+              <th>郵便番号</th>
+              <td><%= @user.postal_code %></td>
+            </tr>
+            <tr>
+              <th>住所</th>
+              <td><%= @user.address %></td>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <td><%= @user.telephone_number %></td>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
+              <td><%= @user.email %></td>
+            </tr>
+            <tr>
+              <th>会員ステータス</th>
+              <% if @user.is_valid == true %>
+              <td class="text-success">有効</td>
+              <% else %>
+              <td class="text-secondary">退会</td>
+              <% end %>
+            </tr>
+          </thead>
+        </table>
+        <div class="text-center">
+          <%= link_to "編集する", edit_admins_user_path, class: "btn btn-success px-5" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
