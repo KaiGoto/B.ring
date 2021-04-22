@@ -3,8 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-         validates :last_name, presence: true
+        # 登録の際に入力するバリデーション
+         validates :last_name, presence: true 
          validates :first_name, presence: true
          validates :k_last_name, presence: true
          validates :k_last_name, presence: true
@@ -13,4 +13,10 @@ class User < ApplicationRecord
          validates :address, presence: true
          validates :telephone_number,presence: true, uniqueness: true, format: { with: /\A\d{10,11}\z/, message: 'は半角数字10桁または11桁で入力してください' }
          validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+-.]+@[a-z\d-]+(.[a-z\d-]+)*.[a-z]+\z/i, message: 'は半角英数字で入力してください' }
+
+  attachment :image
+  has_many :places, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_places, through: :favorites, source: :place
+  has_many :place_comments, dependent: :destroy
 end

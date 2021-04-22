@@ -1,4 +1,5 @@
 class Region < ApplicationRecord
-  def index
-  end
+  has_many :places
+  
+  validates :name, presence: true, uniqueness: true
 end

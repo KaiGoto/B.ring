@@ -1,0 +1,60 @@
+<div class="container pt-2">
+  <h2>登録情報編集</h2><br>
+  <%= form_with model: @user, local:true do |f| %>
+  <%= render 'layouts/errors_massage', obj: @user %>
+  <div class="row my__page__body">
+      <table class="mx-auto", style="font-size:20px;">
+        <thead>
+          <tr>
+            <th class="fas fa-portrait">プロフィール画像</th>
+            <td><%= f.file_field :image, placeholder: "プロフィール画像" %></td>
+          </tr>
+          <tr>
+            <th class="fas fa-signature">氏名</th>
+            <td><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %></td>
+            <td><%= f.text_field :first_name, autocomplete: "first_name" %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th class="fas fa-file-signature">フリガナ</th>
+            <td><%= f.text_field :k_last_name, autofocus: true, autocomplete: "k_last_name" %></td>
+            <td><%= f.text_field :k_first_name, autocomplete: "k_first_name" %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th class="fas fa-user">表示名</th>
+            <td><%= f.text_field :nickname, autocomplete: "nickname" %></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th class="fas fa-mail-bulk">郵便番号</th>
+            <td><%= f.text_field :postal_code, autocomplete: "postal_code" %></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th class="fas fa-address-card">住所</th>
+            <td colspan="3"><%= f.text_field :address, autocomplete: "address", size: "65" %></td>
+          </tr>
+          <tr>
+            <th class="fas fa-mobile-alt">電話番号</th>
+            <td><%= f.text_field :telephone_number, autocomplete: "telephone_number" %></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th class="fas fa-envelope">メールアドレス</th>
+            <td><%= f.email_field :email, autocomplete: "email" %></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </thead>
+      </table>
+  </div><br>
+  <div class="row col-10">
+      <a class="mx-auto"><%= f.submit '編集内容を保存', class:"btn btn-success px-4" %></a>
+      <a class="mx-auto"><%= link_to "退会する", confirm_confirm_path, class:"btn btn-danger px-4" %></a>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+   <div class="container pt-2">
+    <h2>My Page</h2>
+    <div class="row my__page__body" >
+      <span class="col-4"><%= attachment_image_tag(@user, :image, :fill, 300, 300, format: 'jpeg', fallback: "no_image.jpg") %></span>
+      <div class="col-8">
+        <table style="font-size:20px;">
+          <thead>
+            <tr>
+              <th class="fas fa-signature", width="200">氏名</th>
+              <td><%= @user.last_name %><%= @user.first_name %></td>
+            </tr>
+            <tr>
+              <th class="fas fa-file-signature", width="200">フリガナ</th>
+              <td><%= @user.k_last_name %><%= @user.k_first_name %></td>
+            </tr>
+            <tr>
+              <th class="fas fa-user", width="200">表示名</th>
+              <td><%= @user.nickname %></td>
+            </tr>
+            <tr>
+              <th class="fas fa-mail-bulk", width="200">郵便番号</th>
+              <td>〒<%= @user.postal_code %></td>
+            </tr>
+             <tr>
+              <th class="fas fa-address-card", width="200">住所</th>
+              <td colspan="3"><%= @user.address %></td>
+            </tr>
+             <tr>
+              <th class="fas fa-mobile-alt", width="200">電話番号</th>
+              <td><%= @user.telephone_number %></td>
+            </tr>
+             <tr>
+              <th class="fas fa-envelope", width="200">メールアドレス</th>
+              <td><%= @user.email %></td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div><br>
+    <div class="text-center">
+      <%= link_to "編集する", edit_user_path(@user), class:"btn btn-success px-4" %>
+    </div>
+  </div>
