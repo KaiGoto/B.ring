@@ -56,9 +56,9 @@ body {
 
 // ログイン画面背景
 .in {
-  height: 90vh;
+  min-height: calc(100vh - 100px);
   width: 100%;
-  background-image: url(img1.jpg);
+  background-image: image-url("img1.jpg");
   background-size: cover;
 }
 
