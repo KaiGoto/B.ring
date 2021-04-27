@@ -23,3 +23,7 @@ User.create!(
    password: "aaaaaa",
    is_valid: "true",
 )
+
+Region.create!(
+   name: "南河内",
+   )
