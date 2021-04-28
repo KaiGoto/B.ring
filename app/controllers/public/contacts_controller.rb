@@ -25,7 +25,7 @@ class Public::ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      NotificationMailer.contact_created(@contact).deliver_now
+      # NotificationMailer.contact_created(@contact).deliver_now
       redirect_to done_path
     else
       render :new

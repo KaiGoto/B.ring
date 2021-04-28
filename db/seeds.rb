@@ -11,15 +11,15 @@ Admin.create!(
 )
 
 User.create!(
-   email: "aaa@aaa.com",
+   email: "aaa@aaaa.com",
    last_name: "aaa",
    first_name: "aaa",
    k_last_name: "aaa",
    k_first_name: "aaa",
    nickname: "aaa",
    postal_code: "0000000",
-   address: "大阪府大阪市中央区1-1-1",
-   telephone_number: "06012345678",
+   address: "aaa",
+   telephone_number: "0601045678",
    password: "aaaaaa",
    is_valid: "true",
 )

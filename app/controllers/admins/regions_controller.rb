@@ -9,7 +9,7 @@ before_action :authenticate_admin!
   def create
     @regions = Region.new(region_params)
     if @regions.save
-      redirect_to admins_region_path(@region)
+      redirect_to admins_region_path(@regions)
     else
       @region = Region.all
       render "index"
