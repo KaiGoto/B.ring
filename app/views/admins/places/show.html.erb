@@ -25,12 +25,7 @@
               </tr>
               <tr>
                 <th>地域名</th>
-                <td>
-                   <%= link_to admins_region_path do %>
-                   <%= @place.region.name %>
-                   <% end %>
-                   <!--地域詳細ページへのリンク-->
-                </td>
+                <td><%= @place.region.name %></td>
               </tr>
             </thead>
           </table>
@@ -80,7 +75,7 @@
                 "lat": <%= @place.latitude %>,
                 "lng": <%= @place.longitude %>,
                 "infowindow": '<p><%= @place.address %></p><p><%= link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:#{@place.latitude},#{@place.longitude}&iwloc=J",target: "_blank" ,class:"gmap-link"%></p>',
-  
+
               }
             ]);
             handler.bounds.extendWith(markers);
