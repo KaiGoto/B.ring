@@ -1,6 +1,6 @@
 <div class="region">
   <div class="container">
-    <h2><%= @regions.name %>地域詳細</h2>
+    <h2><%= @region.name %>地域詳細</h2>
     <div class="row col-12">
       <table class="text-center, mx-auto, table table-bordered", style="font-size:20px;">
         <thead class="thead-light">
@@ -11,7 +11,7 @@
           </tr>
         <thead>
         <body>
-          <% @regions.places.each do |region| %>
+          <% @region.places.each do |region| %>
           <tr>
             <td width="200">
               <%= link_to place_path(region) do %>
