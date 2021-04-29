@@ -31,7 +31,7 @@
           </table>
           <!--コメント一覧-->
           <div class="commentitem">
-            コメント<%= @place_comment_kaminari.count %>件
+            コメント<%= @place_comments.count %>件
             <table class="text-center mx-auto, table table-bordered">
               <thead class="thead-light">
                 <tr>
@@ -42,7 +42,7 @@
                   <th></th>
                 </tr>
               </thead>
-              <% @place_comment_kaminari.each do |place_comment| %>
+              <% @place_comments.each do |place_comment| %>
               <tr>
                 <td width="150"><%= attachment_image_tag(place_comment.user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg") %></td>
                 <td width="150"><%= place_comment.user.nickname %>さん</td>
