@@ -28,7 +28,7 @@ class SearchesController < ApplicationController
     if model == 'region'
       Region.where("name LIKE ?", "%#{content}")
     elsif model == 'place'
-      Place.where("title LIKE ?", "%#{content}")
+      Place.where("name LIKE ?", "%#{content}")
     end
   end
 
@@ -36,7 +36,7 @@ class SearchesController < ApplicationController
     if model == 'region'
       Region.where("name LIKE ?", "%#{content}%")
     elsif model == 'place'
-      Place.where("title LIKE ?", "%#{content}%")
+      Place.where("name LIKE ?", "%#{content}%")
     end
   end
 

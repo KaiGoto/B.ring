@@ -1,24 +1,22 @@
 <header class="bg-white border-dark">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand p-3" href="/"><!--ロゴからトップページへ-->
+      <!--ロゴからトップページへ-->
+      <a class="navbar-brand p-3" href="/">
         <%= image_tag('logo.png', size: '95x95') %>
       </a>
       <!--検索機能-->
-      <!--ログイン後に表示-->
       <div class='search-form'>
-        <% if user_signed_in? %>
-          <%= form_tag(searches_path, method: :get) do %>
-          <%= text_field_tag 'search[content]' %>
-          <%= select_tag 'search[model]', options_for_select({ "地域名" => "region", "場所名" => "place" }) %>
-          <%= select_tag 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
-          <%= submit_tag '検索', class: "btn btn-primary" %>
-          <% end %>
-         <% end %>
+        <%= form_tag(searches_path, method: :get) do %>
+        <%= text_field_tag 'search[content]' %>
+        <%= select_tag 'search[model]', options_for_select({ "地域名" => "region", "場所名" => "place" }) %>
+        <%= select_tag 'search[how]', options_for_select({ "完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partical"  }) %>
+        <%= submit_tag '検索', class: "btn btn-primary" %>
+        <% end %>
       </div>
       <!--レスポンシブ対応-->
       <button class="navbar-toggler border-dark" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon "></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
