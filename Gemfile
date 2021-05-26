@@ -71,7 +71,7 @@ gem 'pry-byebug'
 gem "gmaps4rails"
 gem "geocoder"
 gem 'rails-i18n'
-gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+gem 'dotenv-rails'
